@@ -12,7 +12,7 @@ export default function PostForm() {
         setMarkdown(e.target.value);
     };
     return (
-        <Flex w="92%" wrap="wrap" margin="0 auto" bg="white">
+        <Flex w="92%" wrap="wrap" margin="0 auto" bg="white" className="mdx">
             {/* <Box w="100%" > */}
                 <Textarea
                     h="90vh"
