@@ -9,6 +9,7 @@ import {
   useColorModeValue as mode,
   useDisclosure,
   VisuallyHidden,
+  Link
 } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import * as React from 'react'
@@ -100,23 +101,20 @@ const DesktopNavContent = (props: FlexProps) => {
 
       <HStack spacing="8" minW="240px" justify="space-between">
         {isLoggedin && (
-          <Box as="a" href="#" color={mode('blue.600', 'blue.300')} fontWeight="bold" >
+          <Box as="a" href="/MyPage" color={mode('blue.600', 'blue.300')} fontWeight="bold" >
             マイページ
           </Box>
         )}
         {!isLoggedin && (
           <>
-            <Button as="a" href="#" color={mode('blue.600', 'blue.300')} fontWeight="bold" onClick={() => setIsShowLogin(true)}>
+            <Button as="a" href="/MyPage" color={mode('blue.600', 'blue.300')} fontWeight="bold" onClick={() => setIsShowLogin(true)}>
               ログイン
             </Button>
-            <Button as="a" href="#" colorScheme="blue" fontWeight="bold" onClick={() => setIsShowLogin(true)
-            }>
+            <Button as="a" href="#" colorScheme="blue" fontWeight="bold" onClick={() => setIsShowLogin(true)}>
               無料新規登録
             </Button>
           </>
         )}
-
-
       </HStack>
       {isShowLogin && <SignInPopup />}
     </Flex>

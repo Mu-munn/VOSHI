@@ -98,9 +98,9 @@ export const SignInPopup = () => {
                         py={{ base: '12', md: '16' }}
                         spacing={{ base: '6', md: '10' }}
                     >
-                        <Logo h="8" />
+                        <Logo h={9} />
                         <Stack spacing="3" textAlign="center">
-                            <Text fontSize="lg">aaaa</Text>
+                            <Text fontSize="lg">現在はGoogleアカウントのみの認証になっております。</Text>
                         </Stack>
                         <Button
                             variant="outline"
@@ -108,7 +108,7 @@ export const SignInPopup = () => {
                             colorScheme="black"
                             onClick={() => loginWithAuthProvider(googleProvider)}
                         >
-                            Gooleでサインインする
+                            Googleでサインインする
                         </Button>
                     </Stack>
                     <Stack
@@ -120,7 +120,7 @@ export const SignInPopup = () => {
                         textAlign="left"
                     >
                         <Text>
-                            aaaaaaa
+                            サインインすると、
 
                             <Text
                                 as="span"
@@ -128,9 +128,9 @@ export const SignInPopup = () => {
                                 cursor="pointer"
                                 onClick={() => window.open('/terms', '_blank')}
                             >
-                                aaaaa
+                                利用規約
                             </Text>
-                            、
+                            ・
                             <Text
                                 as="span"
                                 textDecoration="underline"

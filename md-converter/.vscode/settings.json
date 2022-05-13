@@ -1,0 +1,7 @@
+{
+    "files.exclude": {
+        // 略
+        "**/node_modules":true, // 追加
+        "**/.vscode":true, // 追加
+    },
+}
