@@ -13,6 +13,7 @@ import * as React from 'react'
 import { useAuthUser } from '../../src/hooks/use-auth-user'
 import { useClient } from '../../src/hooks/use-client'
 import { AuthService } from '../../src/service/auth-service'
+import { SignInPopup } from '../common/SignInPopup'
 import { Logo } from './Logo'
 import { NavLink } from './NavLink'
 import { NavMenu } from './NavMenu'
@@ -95,15 +96,26 @@ const DesktopNavContent = (props: FlexProps) => {
         ))}
       </HStack>
       <HStack spacing="8" minW="240px" justify="space-between">
-        <Box as="a" href="#" color={mode('blue.600', 'blue.300')} fontWeight="bold">
-          ログイン
-        </Box>
-        <Button as="a" href="#" colorScheme="blue" fontWeight="bold" onClick={
-          ()=>setIsShowLogin(true)
-        }>
-          無料新規登録
-        </Button>
+        {isLoggedin && (
+          <Box as="a" href="#" color={mode('blue.600', 'blue.300')} fontWeight="bold" >
+            マイページ
+          </Box>
+        )}
+        {!isLoggedin && (
+          <>
+            <Box as="a" href="#" color={mode('blue.600', 'blue.300')} fontWeight="bold" >
+              ログイン
+            </Box>
+            <Button as="a" href="#" colorScheme="blue" fontWeight="bold" onClick={() => setIsShowLogin(true)
+            }>
+              無料新規登録
+            </Button>
+          </>
+        )}
+
+
       </HStack>
+      {isShowLogin && <SignInPopup />}
     </Flex>
   )
 }
