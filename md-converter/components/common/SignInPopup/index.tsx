@@ -9,7 +9,7 @@ import { FaGoogle } from "react-icons/fa";
 import { useAuthUser } from "../../../src/hooks/use-auth-user";
 import { useClient } from "../../../src/hooks/use-client";
 import { app } from "../../../src/utils/firebase/init";
-import { Logo } from "../../NavbarWithSubmenu/Logo";
+import { Logo } from "../../chakra/NavbarWithSubmenu/Logo";
 
 
 const useLoginWithAuthProvider = () => {

@@ -7,7 +7,7 @@ import PostForm from '../components/textArea';
 import PostPreview from '../components/previewArea';
 import Appbar from '../components/Appbar';
 import ReactMarkdown from "react-markdown";
-import { NavContent } from '../components/NavbarWithSubmenu/NavContent';
+import { NavContent } from '../components/chakra/NavbarWithSubmenu/NavContent';
 import { FirebaseApp, getApp } from 'firebase/app';
 
 

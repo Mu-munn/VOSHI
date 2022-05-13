@@ -1,6 +1,8 @@
 import {
   Box,
   Button,
+  ButtonGroup,
+  Container,
   Flex,
   FlexProps,
   HStack,
@@ -10,10 +12,10 @@ import {
 } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import * as React from 'react'
-import { useAuthUser } from '../../src/hooks/use-auth-user'
-import { useClient } from '../../src/hooks/use-client'
-import { AuthService } from '../../src/service/auth-service'
-import { SignInPopup } from '../common/SignInPopup'
+import { useAuthUser } from '../../../src/hooks/use-auth-user'
+import { useClient } from '../../../src/hooks/use-client'
+import { AuthService } from '../../../src/service/auth-service'
+import { SignInPopup } from '../../common/SignInPopup'
 import { Logo } from './Logo'
 import { NavLink } from './NavLink'
 import { NavMenu } from './NavMenu'
@@ -80,11 +82,11 @@ const DesktopNavContent = (props: FlexProps) => {
 
   return (
     <Flex className="nav-content__desktop" align="center" justify="space-between" {...props}>
-      <Box as="a" href="#" rel="home">
+      <Box as="a" href="#" rel="home" padding={8}>
         <VisuallyHidden>Envelope</VisuallyHidden>
         <Logo h="6" iconColor="blue.500" />
       </Box>
-      <HStack as="ul" id="nav__primary-menu" aria-label="Main Menu" listStyleType="none">
+      {/* <HStack as="ul" id="nav__primary-menu" aria-label="Main Menu" listStyleType="none">
         {links.map((link, idx) => (
           <Box as="li" key={idx} id={`nav__menuitem-${idx}`}>
             {link.children ? (
@@ -94,7 +96,8 @@ const DesktopNavContent = (props: FlexProps) => {
             )}
           </Box>
         ))}
-      </HStack>
+      </HStack> */}
+
       <HStack spacing="8" minW="240px" justify="space-between">
         {isLoggedin && (
           <Box as="a" href="#" color={mode('blue.600', 'blue.300')} fontWeight="bold" >
@@ -103,9 +106,9 @@ const DesktopNavContent = (props: FlexProps) => {
         )}
         {!isLoggedin && (
           <>
-            <Box as="a" href="#" color={mode('blue.600', 'blue.300')} fontWeight="bold" >
+            <Button as="a" href="#" color={mode('blue.600', 'blue.300')} fontWeight="bold" onClick={() => setIsShowLogin(true)}>
               ログイン
-            </Box>
+            </Button>
             <Button as="a" href="#" colorScheme="blue" fontWeight="bold" onClick={() => setIsShowLogin(true)
             }>
               無料新規登録
