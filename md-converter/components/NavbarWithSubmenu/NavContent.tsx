@@ -8,7 +8,11 @@ import {
   useDisclosure,
   VisuallyHidden,
 } from '@chakra-ui/react'
+import { useRouter } from 'next/router'
 import * as React from 'react'
+import { useAuthUser } from '../../src/hooks/use-auth-user'
+import { useClient } from '../../src/hooks/use-client'
+import { AuthService } from '../../src/service/auth-service'
 import { Logo } from './Logo'
 import { NavLink } from './NavLink'
 import { NavMenu } from './NavMenu'
@@ -52,6 +56,27 @@ const MobileNavContext = (props: FlexProps) => {
 }
 
 const DesktopNavContent = (props: FlexProps) => {
+
+  const { isShowLogin, setIsShowLogin } = useClient()
+  const authUser = useAuthUser()
+  const isLoggedin = authUser?.isAnonymous === false
+
+  const router = useRouter()
+
+  React.useEffect(() => {
+    const handleShowLogin = async () => {
+      try {
+        const query = router.query
+        const showSignIn = query.showSignIn
+        if (showSignIn === 'true') {
+          await AuthService.signOut()
+          setIsShowLogin(true)
+        }
+      } catch (error) { }
+    }
+    handleShowLogin()
+  }, [router.query])
+
   return (
     <Flex className="nav-content__desktop" align="center" justify="space-between" {...props}>
       <Box as="a" href="#" rel="home">
@@ -73,8 +98,10 @@ const DesktopNavContent = (props: FlexProps) => {
         <Box as="a" href="#" color={mode('blue.600', 'blue.300')} fontWeight="bold">
           ログイン
         </Box>
-        <Button as="a" href="#" colorScheme="blue" fontWeight="bold">
-         無料新規登録
+        <Button as="a" href="#" colorScheme="blue" fontWeight="bold" onClick={
+          ()=>setIsShowLogin(true)
+        }>
+          無料新規登録
         </Button>
       </HStack>
     </Flex>

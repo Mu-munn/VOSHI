@@ -1,4 +1,4 @@
-import { Box, Button, HStack } from '@chakra-ui/react'
+import { Box, Button, HStack, Link } from '@chakra-ui/react'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
@@ -31,7 +31,6 @@ export default function Home() {
         <li>appId = {app.options.appId}</li>
         <li>apiKey = {app.options.apiKey}</li>
       </ul>
-
     </div>
   )
 }

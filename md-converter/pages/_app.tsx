@@ -3,13 +3,19 @@ import '../styles/markDown.css'
 import { ChakraProvider } from '@chakra-ui/react';
 
 import '../src/utils/firebase/init'
+import { AuthProvider } from '../src/hooks/use-auth-user';
+import { ClientProvider } from '../src/hooks/use-client';
 
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <AuthProvider>
+      <ClientProvider>
+        <ChakraProvider>
+          <Component {...pageProps} />
+        </ChakraProvider>
+      </ClientProvider>
+    </AuthProvider>
   )
 }
 
