@@ -32,7 +32,7 @@ const MobileNavContext = (props: FlexProps) => {
         <Box flexBasis="6rem">
           <ToggleButton isOpen={isOpen} onClick={onToggle} />
         </Box>
-        <Box as="a" rel="home" mx="auto">
+        <Box as="a" rel="/" mx="auto">
           <Logo h="24px" iconColor="blue.400" />
         </Box>
         <Box visibility={{ base: 'hidden', sm: 'visible' }}>
@@ -87,18 +87,6 @@ const DesktopNavContent = (props: FlexProps) => {
         <VisuallyHidden>Envelope</VisuallyHidden>
         <Logo h="6" iconColor="blue.500" />
       </Box>
-      {/* <HStack as="ul" id="nav__primary-menu" aria-label="Main Menu" listStyleType="none">
-        {links.map((link, idx) => (
-          <Box as="li" key={idx} id={`nav__menuitem-${idx}`}>
-            {link.children ? (
-              <Submenu.Desktop link={link} />
-            ) : (
-              <NavLink.Desktop href={link.href}>{link.label}</NavLink.Desktop>
-            )}
-          </Box>
-        ))}
-      </HStack> */}
-
       <HStack spacing="8" minW="240px" justify="space-between">
         {isLoggedin && (
           <Box as="a" href="/MyPage" color={mode('blue.600', 'blue.300')} fontWeight="bold" >
@@ -107,7 +95,7 @@ const DesktopNavContent = (props: FlexProps) => {
         )}
         {!isLoggedin && (
           <>
-            <Button as="a" href="/MyPage" color={mode('blue.600', 'blue.300')} fontWeight="bold" onClick={() => setIsShowLogin(true)}>
+            <Button as="a" href="#" color={mode('blue.600', 'blue.300')} fontWeight="bold" onClick={() => setIsShowLogin(true)}>
               ログイン
             </Button>
             <Button as="a" href="#" colorScheme="blue" fontWeight="bold" onClick={() => setIsShowLogin(true)}>

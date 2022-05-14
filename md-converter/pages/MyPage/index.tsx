@@ -1,13 +1,18 @@
-import { Box } from "@chakra-ui/react"
+import { Box, Center, Container, Flex, HStack, Stack, Text, VStack } from "@chakra-ui/react"
 import Appbar from "../../components/Appbar"
 import { NavContent } from "../../components/chakra/NavbarWithSubmenu/NavContent"
 import { App } from "../../components/chakra/ShellWithSidebarOnFullAccent/App"
+import { NavbarWithAvator } from "../../components/chakra/NavbarWithAvatar/App"
+import { Card } from "../../components/idea-card/app"
 
-const Page = () => {
-    return (
-        <>
-         <NavContent.Desktop></NavContent.Desktop>
-        </>
-    )
+const MyPage = () => {
+  return (
+    <Box bg='gray.50' height="100vh">
+      <NavbarWithAvator></NavbarWithAvator>
+      <VStack bg="">
+        <Card></Card>
+      </VStack>
+    </Box>
+  )
 }
-export default Page
+export default MyPage

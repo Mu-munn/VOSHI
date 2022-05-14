@@ -18,18 +18,26 @@ const useLoginWithAuthProvider = () => {
     const authUser = useAuthUser()
     const router = useRouter()
 
-    // const finishToNavigate = async()=>{
-    //   setIsShowLogin(false)
-    //   const auth = getAuth()
-    //   const user = auth.currentUser
-    // }
+    const finishToNavigate = async () => {
+        setIsShowLogin(false)
+        const auth = getAuth()
+        const user = auth.currentUser
+
+        if (!user) return
+
+        const idToken = await user.getIdToken(true)
+        if (idToken) {
+            setCookie(null, '__session', idToken)
+        }
+        router.push('/MyPage')
+    }
     const result = useCallback(
         async (provider: AuthProvider) => {
             if (authUser) {
                 if (authUser.isAnonymous === true) {
                     await linkWithPopup(authUser, provider)
                         .then(() => {
-                            // finishToNavigate()
+                            finishToNavigate()
                         })
                         .catch(async (error: Error) => {
                             console.log(error.message);
@@ -38,7 +46,7 @@ const useLoginWithAuthProvider = () => {
                                 const auth = getAuth(app)
                                 await signInWithRedirect(auth, provider)
                                     .then((result) => {
-                                        // finishToNavigate()
+                                        finishToNavigate()
                                     })
                                     .catch((error: Error) => {
                                         console.log(error);
@@ -51,7 +59,7 @@ const useLoginWithAuthProvider = () => {
                 const auth = getAuth()
                 await signInWithPopup(auth, provider)
                     .then((result) => {
-                        // finishToNavigate()
+                        finishToNavigate()
                     })
                     .catch((error: Error) => {
                         console.log(error);
@@ -83,15 +91,6 @@ export const SignInPopup = () => {
             <ModalOverlay />
             <ModalContent borderRadius="2xl" mx="4">
                 <ModalBody>
-                    {/* <Stack
-            maxW="md"
-            mx="auto"
-            py={{ base: '12', md: '16' }}
-            spacing={{ base: '6', md: '10' }}
-            // align="self-start"
-          >
-            <Logo h="8" />
-          </Stack> */}
                     <Stack
                         maxW="xs"
                         mx="auto"

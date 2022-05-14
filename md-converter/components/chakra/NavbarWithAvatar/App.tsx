@@ -14,16 +14,17 @@ import * as React from 'react'
 import { FiHelpCircle, FiMenu, FiSearch, FiSettings } from 'react-icons/fi'
 import { Logo } from './Logo'
 
-export const App = () => {
+export const NavbarWithAvator = () => {
   const isDesktop = useBreakpointValue({ base: false, lg: true })
   return (
-    <Box as="section" pb={{ base: '12', md: '24' }}>
-      <Box as="nav" bg="bg-surface" boxShadow={useColorModeValue('sm', 'sm-dark')}>
-        <Container py={{ base: '3', lg: '4' }}>
+    <Box as="section" pb={{ base: '12', md: '12' }} bg="" >
+      <Box as="nav" bg="white"  bgColor="">
+      {/* Box as="nav" bg="white" boxShadow={useColorModeValue('sm', 'sm-dark')} bgColor=""> */}
+        <Box py={{ base: '3', lg: '4' }} bg="" w="100%" px={6}>
           <Flex justify="space-between">
             <HStack spacing="4">
               <Logo />
-              {isDesktop && (
+              {/* {isDesktop && (
                 <ButtonGroup variant="ghost" spacing="1">
                   <Button>Home</Button>
                   <Button aria-current="page">Dashboard</Button>
@@ -31,13 +32,13 @@ export const App = () => {
                   <Button>Bookmarks</Button>
                   <Button>Users</Button>
                 </ButtonGroup>
-              )}
+              )} */}
             </HStack>
             {isDesktop ? (
               <HStack spacing="4">
                 <ButtonGroup variant="ghost" spacing="1">
                   <IconButton icon={<FiSearch fontSize="1.25rem" />} aria-label="Search" />
-                  <IconButton icon={<FiSettings fontSize="1.25rem" />} aria-label="Settings" />
+                  {/* <IconButton icon={<FiSettings fontSize="1.25rem" />} aria-label="Settings" /> */}
                   <IconButton icon={<FiHelpCircle fontSize="1.25rem" />} aria-label="Help Center" />
                 </ButtonGroup>
                 <Avatar boxSize="10" name="Christoph Winston" src="https://tinyurl.com/yhkm2ek8" />
@@ -50,7 +51,7 @@ export const App = () => {
               />
             )}
           </Flex>
-        </Container>
+        </Box>
       </Box>
     </Box>
   )
