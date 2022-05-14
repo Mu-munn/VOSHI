@@ -2,7 +2,8 @@ import { Box } from "@chakra-ui/react"
 
 export const Card = () => {
   return (
-    <Box bg='white' w='20%' h='300px' p={4} boxShadow='2xl'  rounded='md'>
+      
+    <Box bg='white' w='300px' h='300px' p={4} boxShadow='2xl'  rounded='md'>
     </Box>
   )
 }

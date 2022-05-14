@@ -17,22 +17,22 @@ import { Logo } from './Logo'
 export const NavbarWithAvator = () => {
   const isDesktop = useBreakpointValue({ base: false, lg: true })
   return (
-    <Box as="section" pb={{ base: '12', md: '12' }} bg="" >
+    <Box as="section" pb={{ base: '12', md: '12' }} bg="" zIndex={0}  position='sticky'>
       <Box as="nav" bg="white"  bgColor="">
       {/* Box as="nav" bg="white" boxShadow={useColorModeValue('sm', 'sm-dark')} bgColor=""> */}
         <Box py={{ base: '3', lg: '4' }} bg="" w="100%" px={6}>
           <Flex justify="space-between">
             <HStack spacing="4">
               <Logo />
-              {/* {isDesktop && (
+              {isDesktop && (
                 <ButtonGroup variant="ghost" spacing="1">
-                  <Button>Home</Button>
-                  <Button aria-current="page">Dashboard</Button>
-                  <Button>Tasks</Button>
+                  {/* <Button>ダッシュボード</Button> */}
+                  {/* <Button aria-current="page">探す</Button>
+                  <Button>集める</Button>
                   <Button>Bookmarks</Button>
-                  <Button>Users</Button>
+                  <Button>Users</Button> */}
                 </ButtonGroup>
-              )} */}
+              )}
             </HStack>
             {isDesktop ? (
               <HStack spacing="4">
