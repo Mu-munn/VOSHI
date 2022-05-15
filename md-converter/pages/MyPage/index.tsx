@@ -4,6 +4,7 @@ import {
   Box,
   Button,
   Center,
+  color,
   Container,
   Flex,
   Heading,
@@ -14,6 +15,7 @@ import {
   TagCloseButton,
   TagLabel,
   Text,
+  useColorModeValue,
   VStack,
 } from "@chakra-ui/react"
 import Appbar from "../../components/Appbar"
@@ -29,17 +31,10 @@ const MyPage = () => {
       <HStack alignItems={"self-start"}>
         <Spacer></Spacer>
 
-        <Box w='70%' m={"auto"}>
-          {/* <Box h='' bgColor='' mb='70px'>
-          <HStack spacing={4}>
-            {["lg","lg"].map((size) => (
-              <Tag size='lg' key={size} borderRadius='full' variant='solid' colorScheme='blue'>
-                <TagLabel>React.js</TagLabel>
-                <TagCloseButton />
-              </Tag>
-            ))}
-          </HStack>
-        </Box> */}
+        <Box w='' m={"auto"}>
+          <Box h='' w={"800px"} bgColor='' mb='70px' mt={30} bg={''}>
+              <Heading fontFamily={'Zen Kaku Gothic New'} color={'#333333'}>７ found . </Heading>
+          </Box>
 
           <VStack bg='' spacing={7}>
             <Card></Card>
@@ -55,17 +50,26 @@ const MyPage = () => {
           </VStack>
         </Box>
 
-        <Box w={"20%"} h={""} bgColor={""} borderRadius={"2xl"} position={"sticky"} top='130px'>
-          {/* <Heading color={'black.300'} fontFamily={'Zen Kaku Gothic New'}>カテゴリー</Heading> */}
-          <Flex gap={4} wrap={"wrap"}>
+        <Spacer></Spacer>
+
+        <VStack w={"230px"} h={""} bgColor={""} borderRadius={"2xl"} position={"sticky"} top='250px' alignItems={''} >
+          <Text color={'#333333'} fontFamily={'Zen Kaku Gothic New'} fontSize={'2xl'} mb={'10px'}>CATEGORY .</Text>
+          <Flex gap={4} wrap={"wrap"} mt={'20px'}>
             {["lg", "lg", "lg", "lg", "lg", "lg", "lg"].map((size) => (
-              <Tag size='lg' key={size} borderRadius='5' variant='solid' colorScheme='blue'>
+              <Tag
+                size='md'
+                key={size}
+                borderRadius='5'
+                variant='solid'
+                colorScheme='gray'
+                boxShadow={"2xl"}
+              >
                 <TagLabel>React.js</TagLabel>
                 <TagCloseButton />
               </Tag>
             ))}
           </Flex>
-        </Box>
+        </VStack>
         <Spacer></Spacer>
       </HStack>
 
