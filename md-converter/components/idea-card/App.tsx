@@ -17,11 +17,11 @@ import {
 
 export const Card = () => {
   return (
-    <VStack bg='white' w='850px' h='' boxShadow='' p={4} rounded='md' align={"flex-start"}>
+    <VStack bg='white' w='850px' h='' boxShadow='' p={5} rounded='md' align={"flex-start"}>
       <Box h={""} bgColor=''>
         <HStack>
           {/* <Box h={"60px"} w={"86px"} bgColor='' borderRadius={"lg"}></Box> */}
-          <Avatar boxSize='20' name='Christoph Winston' src='https://tinyurl.com/yhkm2ek8' />
+          <Avatar boxSize='20' name='Christoph Winston' src='https://avatars.githubusercontent.com/u/86332503?v=4' />
           <Heading fontFamily={"Zen Kaku Gothic New"} fontWeight={"bold"} color={"#383838"}>
             エンジニアのための学習記録サービス
           </Heading>

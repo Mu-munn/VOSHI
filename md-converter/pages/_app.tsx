@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
     fonts: {
       // heading: 'Open Sans, sans-serif',
       body: "Zen Kaku Gothic New, Raleway, sans-serif",
-      heading: "sans-serif, Rampart One",
+      heading: "Zen Kaku Gothic New, sans-serif, Rampart One",
     },
   })
   
