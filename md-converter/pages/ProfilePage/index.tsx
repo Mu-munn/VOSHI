@@ -19,7 +19,7 @@ export const ProfilePage = () => {
     <Box bg="gray.100">
       <NavbarWithAvator></NavbarWithAvator>
       <VStack w={"80%"} m={"auto"}>
-        <Heading color={"#333333"} mb={"100px"}>
+        <Heading color={"#333333"} my={"50px"}>
           PROFILE
         </Heading>
         <HStack bgColor={""} w={"75%"} py={"50px"}>
@@ -34,7 +34,7 @@ export const ProfilePage = () => {
           <Spacer></Spacer>
         </HStack>
         <Flex justifyContent={"space-between"} w={"850px"}>
-          <Center
+          {/* <Center
             fontWeight={"bold"}
             fontSize="30px"
             bgColor={"white"}
@@ -47,7 +47,20 @@ export const ProfilePage = () => {
               size={"lg"}
               src="https://avatars.githubusercontent.com/u/86332503?v=4"
             ></Avatar>
-          </Center>
+          </Center> */}
+          <Box
+            bgColor={"white"}
+            borderRadius={"lg"}
+            h={200}
+            w={200}
+            p={4}
+            textAlign="center"
+          >
+            <Text>プロフィール</Text>
+            <Center fontWeight={"bold"} fontSize="30px" bgColor={""} h={"80%"}>
+              詳細
+            </Center>
+          </Box>
 
           <Box
             bgColor={"white"}
