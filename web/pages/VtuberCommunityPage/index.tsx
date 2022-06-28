@@ -6,7 +6,7 @@ export default function VtuberCommunityPage() {
     <NavbarWithAvator></NavbarWithAvator>
       <Tabs ml={"50px"} mr={"50px"}>
         <TabList>
-          <Tab>One</Tab>
+          <Tab>Oned</Tab>
           <Tab>Two</Tab>
           <Tab>Three</Tab>
         </TabList>
