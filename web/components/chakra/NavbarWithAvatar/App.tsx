@@ -34,7 +34,7 @@ export const NavbarWithAvator = () => {
           <Flex justify="space-between">
             <HStack spacing="4">
               {/* <Logo /> */}
-              <Heading>Vオシ！</Heading>
+              <Heading>VOSHI</Heading>
               {isDesktop && (
                 <ButtonGroup variant="ghost" spacing="1">
                   {/* <Button>ダッシュボード</Button> */}
