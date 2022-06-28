@@ -6,10 +6,10 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link
-            href='https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@700&display=swap'
-            rel='stylesheet'
-          ></link>
+        <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti:wght@700&display=swap" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Kaisei+Opti:wght@700&display=swap" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Kaisei+Opti:wght@700&display=swap" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap" rel="stylesheet"></link>
         </Head>
         <body>
           <Main />

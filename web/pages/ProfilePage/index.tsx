@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { FaGratipay } from "react-icons/fa";
 import { NavbarWithAvator } from "../../components/chakra/NavbarWithAvatar/App";
-import { Card } from "../../components/idea-card/App";
+import { Card } from "../../components/Cards/idea-card/App";
 
 export const ProfilePage = () => {
   return (

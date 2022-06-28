@@ -11,8 +11,8 @@ function MyApp({ Component, pageProps }) {
   const theme = extendTheme({
     fonts: {
       // heading: 'Open Sans, sans-serif',
-      body: "Zen Kaku Gothic New, Raleway, sans-serif",
-      heading: "Zen Kaku Gothic New, sans-serif, Rampart One",
+      body: "Mochiy Pop One, Raleway, sans-serif",
+      heading: "Dela Gothic One, sans-serif, Rampart One",
     },
   })
   
