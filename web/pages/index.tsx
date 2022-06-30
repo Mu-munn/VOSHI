@@ -12,6 +12,7 @@ import {
   InputRightElement,
   VStack,
   Text,
+  Stack,
 } from "@chakra-ui/react"
 import Head from "next/head"
 import styles from "../styles/Home.module.css"
@@ -26,10 +27,10 @@ import { NavbarWithAvator } from "../components/chakra/NavbarWithAvatar/App"
 import VtuberIconCard from "../components/Cards/idea-card/VtuberIconCard"
 import YouTube from "react-youtube"
 import ArticleCard from "../components/Cards/idea-card/ArticleCard/app"
-import {Swiper,  SwiperSlide } from "swiper/react"
-import { Pagination, Navigation } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react"
+import { Pagination, Navigation } from "swiper"
+import { ArrowForwardIcon } from "@chakra-ui/icons"
 import ArticleSliders from "../components/Sliders/ArticleSlider/App"
-
 
 export default function Home() {
   const app: FirebaseApp = getApp()
@@ -49,6 +50,19 @@ export default function Home() {
         <VStack mb='150px' bgColor={""}>
           <Heading textAlign={"left"}>COMMUNITY</Heading>
           <Text>話題のコミュニティ</Text>
+          <Box h='20px' w={"80%"} pos={"relative"}>
+            <Button
+                // rightIcon={<ArrowForwardIcon />}
+                // variant='unstyled'
+                position={"absolute"}
+                bottom='0'
+                right='0'
+              >
+                LEARN MORE ＞
+              </Button>
+          </Box>
+          
+
           <Box h='30px'></Box>
           <Center m={"auto 0"}>
             {/* ここスライドにしたい */}
@@ -71,10 +85,23 @@ export default function Home() {
           boxShadow='dark-lg'
           h={"3000px"}
         >
-          <VStack h='' p={""} w='80%' m={"0 auto"}>
+          <VStack h='' p={""} w='80%' m={"0 auto"} >
             <Box h='30px'></Box>
-            <Heading>PICK UP</Heading>
+            <Box  w="90%" pos={"relative"}>
+              <Heading textAlign={"center"}>PICK UP</Heading>
+              <Button
+                // rightIcon={<ArrowForwardIcon />}
+                variant='unstyled'
+                position={"absolute"}
+                bottom='0'
+                right='0'
+              >
+                LEARN MORE ＞
+              </Button>
+            </Box>
+
             <Text>話題のVtuber</Text>
+
             <Box h='20px'></Box>
             <HStack justifyContent={"space-between"} spacing='30px'>
               <VtuberIconCard></VtuberIconCard>
