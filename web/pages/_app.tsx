@@ -15,7 +15,6 @@ function MyApp({ Component, pageProps }) {
       heading: "Dela Gothic One, sans-serif, Rampart One",
     },
   })
-  
 
   return (
     <AuthProvider>

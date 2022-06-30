@@ -3,11 +3,12 @@ import OfficeCardTag from "../CardTag"
 
 export default function VtuberIconCard() {
   const h = "250px"
+  const radiusSize = "39px"
   return (
     <>
-      <Box position={"relative"} bgColor="red"  borderRadius={"50px"}>
+      <Box position={"relative"} bgColor="red"  borderRadius={radiusSize}>
         <Image
-          borderRadius={"50px"}
+          borderRadius={radiusSize}
           h={h}
           w={h}
           bgSize='inherit'
@@ -17,7 +18,7 @@ export default function VtuberIconCard() {
           alt='a'
         ></Image>
         <OfficeCardTag></OfficeCardTag>
-        <Center  borderBottomRadius={"50px"} bgColor={"rgba(0,0,0,0.8)"} position="absolute" w={"100%"} h="50px" bottom="0">
+        <Center  borderBottomRadius={radiusSize} bgColor={"rgba(0,0,0,0.8)"} position="absolute" w={"100%"} h="50px" bottom="0">
            <Text fontFamily={"Dela Gothic One"} fontSize="20px" color={"white"}>一ノ瀬うるは</Text> 
         </Center>
       </Box>
