@@ -395,13 +395,20 @@
   dependencies:
     "@chakra-ui/utils" "2.0.2"
 
-"@chakra-ui/icons@^1.1.1":
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/icons/-/icons-1.1.7.tgz#f8c0c44a969c8654b90026b7d375b550c4bfbc49"
-  integrity sha512-YIHxey/B4M2PyFASlHXtAWFyW+tsAtGAChOJ8dsM2kpu1MbVUqm/6nMI1KIFd7Te5IWuNYA75rAHBdLI0Yu61A==
+"@chakra-ui/icon@3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/icon/-/icon-3.0.2.tgz#e8b380981690a543382f56f9d184f6b28f4b3d83"
+  integrity sha512-sas37byldn5O/TTIKHzxHBujEYqVPXegisoMqutLtF60fpXnb62aG1JTyorXSG3zJxJWQW7+AvjbOGyWKHXc0Q==
   dependencies:
-    "@chakra-ui/icon" "2.0.5"
-    "@types/react" "^17.0.15"
+    "@chakra-ui/utils" "2.0.2"
+
+"@chakra-ui/icons@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/icons/-/icons-2.0.2.tgz#4ef4c3e1c6eb7a8f7d5de59635811f0c68104d4b"
+  integrity sha512-UY7vP8E5pv2a4sd1SiezgVbmq1/tRfnehk6PatunrTvGMxQNhSKJJoiRI/wCtUfMoMz+yp9+ekc1ksJVCnokRg==
+  dependencies:
+    "@chakra-ui/icon" "3.0.2"
+    "@types/react" "^18.0.1"
 
 "@chakra-ui/image@2.0.3":
   version "2.0.3"
@@ -1727,10 +1734,19 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.5.tgz#5f19d2b85a98e9558036f6a3cacc8819420f05cf"
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
 
-"@types/react@^17.0.15", "@types/react@^17.0.38":
-  version "17.0.47"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.47.tgz#4ee71aaf4c5a9e290e03aa4d0d313c5d666b3b78"
-  integrity sha512-mk0BL8zBinf2ozNr3qPnlu1oyVTYq+4V7WA76RgxUAtf0Em/Wbid38KN6n4abEkvO4xMTBWmnP1FtQzgkEiJoA==
+"@types/react@^17.0.38":
+  version "17.0.38"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.38.tgz#f24249fefd89357d5fa71f739a686b8d7c7202bd"
+  integrity sha512-SI92X1IA+FMnP3qM5m4QReluXzhcmovhZnLNm3pyeQlooi02qI7sLiepEYqT678uNiyc25XfCqxREFpy3W7YhQ==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
+
+"@types/react@^18.0.1":
+  version "18.0.14"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.14.tgz#e016616ffff51dba01b04945610fe3671fdbe06d"
+  integrity sha512-x4gGuASSiWmo0xjDLpm5mPb52syZHJx02VKbqUKdLmKtAwIh63XClGsiTI1K6DO5q7ox4xAsQrU+Gl3+gGXF9Q==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -2197,7 +2213,7 @@ dashify@^2.0.0:
   resolved "https://registry.yarnpkg.com/dashify/-/dashify-2.0.0.tgz#fff270ca2868ca427fee571de35691d6e437a648"
   integrity sha512-hpA5C/YrPjucXypHPPc0oJ1l9Hf6wWbiOL7Ik42cxnsUOhWiCB/fylKbKqqJalW9FgkNQCw16YO8uW9Hs0Iy1A==
 
-debug@^2.6.9:
+debug@^2.6.6, debug@^2.6.9:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   integrity sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==
@@ -2292,6 +2308,13 @@ dom-serializer@^1.0.1:
     domelementtype "^2.0.1"
     domhandler "^4.2.0"
     entities "^2.0.0"
+
+dom7@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/dom7/-/dom7-4.0.4.tgz#8b68c5d8e5e2ed0fddb1cb93e433bc9060c8f3fb"
+  integrity sha512-DSSgBzQ4rJWQp1u6o+3FVwMNnT5bzQbMb+o31TjYYeRi05uAcpF8koxdfzeoe5ElzPmua7W7N28YJhF7iEKqIw==
+  dependencies:
+    ssr-window "^4.0.0"
 
 domelementtype@^2.0.1, domelementtype@^2.2.0:
   version "2.3.0"
@@ -2635,7 +2658,7 @@ extend@^3.0.0:
   resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.2.tgz#f8b1136b4071fbd8eb140aff858b1019ec2915fa"
   integrity sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==
 
-fast-deep-equal@^3.1.1, fast-deep-equal@^3.1.3:
+fast-deep-equal@3.1.3, fast-deep-equal@^3.1.1, fast-deep-equal@^3.1.3:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz#3a7d56b559d6cbc3eb512325244e619a65c6c525"
   integrity sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==
@@ -3271,6 +3294,11 @@ lines-and-columns@^1.1.6:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.2.4.tgz#eca284f75d2965079309dc0ad9255abb2ebc1632"
   integrity sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==
+
+load-script@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/load-script/-/load-script-1.0.0.tgz#0491939e0bee5643ee494a7e3da3d2bac70c6ca4"
+  integrity sha512-kPEjMFtZvwL9TaZo0uZ2ml+Ye9HUMmPwbYRJ324qF9tqMejwykJ5ggTyvzmrbBeapCAbk98BSbTeovHEEP1uCA==
 
 loader-utils@1.2.3:
   version "1.2.3"
@@ -4065,7 +4093,7 @@ promise-polyfill@8.1.3:
   resolved "https://registry.yarnpkg.com/promise-polyfill/-/promise-polyfill-8.1.3.tgz#8c99b3cf53f3a91c68226ffde7bde81d7f904116"
   integrity sha512-MG5r82wBzh7pSKDRa9y+vllNHz3e3d4CNj1PQE4BQYxLme0gKYYBm9YENq+UkEikyZ0XbiGWxYlVw3Rl9O/U8g==
 
-prop-types@^15.0.0, prop-types@^15.6.2, prop-types@^15.8.1:
+prop-types@15.8.1, prop-types@^15.0.0, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -4421,6 +4449,11 @@ side-channel@^1.0.4:
     get-intrinsic "^1.0.2"
     object-inspect "^1.9.0"
 
+sister@^3.0.0:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/sister/-/sister-3.0.2.tgz#bb3e39f07b1f75bbe1945f29a27ff1e5a2f26be4"
+  integrity sha512-p19rtTs+NksBRKW9qn0UhZ8/TUI9BPw9lmtHny+Y3TinWlOa9jWh9xB0AtPSdmOy49NJJJSSe0Ey4C7h0TrcYA==
+
 slash@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-3.0.0.tgz#6539be870c165adbd5240220dbe361f1bc4d4634"
@@ -4445,6 +4478,11 @@ space-separated-tokens@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/space-separated-tokens/-/space-separated-tokens-2.0.1.tgz#43193cec4fb858a2ce934b7f98b7f2c18107098b"
   integrity sha512-ekwEbFp5aqSPKaqeY1PGrlGQxPNaq+Cnx4+bE2D8sciBQrHpbwoBbawqTN2+6jPs9IdWxxiUcN0K2pkczD3zmw==
+
+ssr-window@^4.0.0, ssr-window@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/ssr-window/-/ssr-window-4.0.2.tgz#dc6b3ee37be86ac0e3ddc60030f7b3bc9b8553be"
+  integrity sha512-ISv/Ch+ig7SOtw7G2+qkwfVASzazUnvlDTwypdLoPoySv+6MqlOV10VwPSE6EWkGjhW50lUmghPmpYZXMu/+AQ==
 
 stable@^0.1.8:
   version "0.1.8"
@@ -4623,6 +4661,14 @@ svgo@^2.5.0:
     csso "^4.2.0"
     picocolors "^1.0.0"
     stable "^0.1.8"
+
+swiper@^8.2.6:
+  version "8.2.6"
+  resolved "https://registry.yarnpkg.com/swiper/-/swiper-8.2.6.tgz#4c5174e82c2a8029bd9bda88a043be2486bb6972"
+  integrity sha512-qo0E9GpcZpJer+vYXRd3CANDfFZTmUeyeIjmyi7fwuc5ozhAs1MCLgMSpZn393ZBgK7VIXA40YnQcAyJX3kjzw==
+  dependencies:
+    dom7 "^4.0.4"
+    ssr-window "^4.0.2"
 
 text-table@^0.2.0:
   version "0.2.0"
@@ -4964,6 +5010,15 @@ yargs@^16.2.0:
     string-width "^4.2.0"
     y18n "^5.0.5"
     yargs-parser "^20.2.2"
+
+youtube-player@5.5.2:
+  version "5.5.2"
+  resolved "https://registry.yarnpkg.com/youtube-player/-/youtube-player-5.5.2.tgz#052b86b1eabe21ff331095ffffeae285fa7f7cb5"
+  integrity sha512-ZGtsemSpXnDky2AUYWgxjaopgB+shFHgXVpiJFeNB5nWEugpW1KWYDaHKuLqh2b67r24GtP6HoSW5swvf0fFIQ==
+  dependencies:
+    debug "^2.6.6"
+    load-script "^1.0.0"
+    sister "^3.0.0"
 
 zwitch@^2.0.0:
   version "2.0.2"

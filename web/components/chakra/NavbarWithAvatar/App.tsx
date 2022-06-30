@@ -11,6 +11,7 @@ import {
   Link,
   useBreakpointValue,
   useColorModeValue,
+  Text,
 } from "@chakra-ui/react";
 import * as React from "react";
 import { FiHelpCircle, FiMenu, FiSearch, FiSettings } from "react-icons/fi";
@@ -34,7 +35,8 @@ export const NavbarWithAvator = () => {
           <Flex justify="space-between">
             <HStack spacing="4">
               {/* <Logo /> */}
-              <Heading>Vオシ！</Heading>
+              <Heading>VOSHI</Heading>
+              <Text>話し合えるコミュニティ</Text>
               {isDesktop && (
                 <ButtonGroup variant="ghost" spacing="1">
                   {/* <Button>ダッシュボード</Button> */}

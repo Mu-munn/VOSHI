@@ -22,7 +22,7 @@ import Appbar from "../../components/Appbar"
 import { NavContent } from "../../components/chakra/NavbarWithSubmenu/NavContent"
 import { App } from "../../components/chakra/ShellWithSidebarOnFullAccent/App"
 import { NavbarWithAvator } from "../../components/chakra/NavbarWithAvatar/App"
-import { Card } from "../../components/idea-card/App"
+import { Card } from "../../components/Cards/idea-card/App"
 
 const MyPage = () => {
   return (
