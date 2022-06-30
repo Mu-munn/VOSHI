@@ -26,6 +26,10 @@ import { NavbarWithAvator } from "../components/chakra/NavbarWithAvatar/App"
 import VtuberIconCard from "../components/Cards/idea-card/VtuberIconCard"
 import YouTube from "react-youtube"
 import ArticleCard from "../components/Cards/idea-card/ArticleCard/app"
+import {Swiper,  SwiperSlide } from "swiper/react"
+import { Pagination, Navigation } from "swiper";
+import ArticleSliders from "../components/Sliders/ArticleSlider/App"
+
 
 export default function Home() {
   const app: FirebaseApp = getApp()
@@ -43,74 +47,68 @@ export default function Home() {
       <Box bgColor={"aliceblue"}>
         <NavbarWithAvator></NavbarWithAvator>
         <VStack mb='150px' bgColor={""}>
-        <Heading textAlign={"left"} mb="30px">COMMUNITY</Heading>
-          <Center m={"auto 0"} >
-            <HStack>
-              <ArticleCard></ArticleCard>
-              <ArticleCard></ArticleCard>
-              <ArticleCard></ArticleCard>
-            </HStack>
+          <Heading textAlign={"left"}>COMMUNITY</Heading>
+          <Text>話題のコミュニティ</Text>
+          <Box h='30px'></Box>
+          <Center m={"auto 0"}>
+            {/* ここスライドにしたい */}
+            {/* <ArticleSliders></ArticleSliders> */}
+            <VStack>
+              <HStack>
+                <ArticleCard></ArticleCard>
+                <ArticleCard></ArticleCard>
+                <ArticleCard></ArticleCard>
+              </HStack>
+            </VStack>
           </Center>
         </VStack>
 
-        <Box w='100%' bgColor={"#fa709a"} py='6'>
+        <Box
+          w='100%'
+          bgColor={"#fa709a"}
+          py='6'
+          borderTopLeftRadius={"200px"}
+          boxShadow='dark-lg'
+          h={"3000px"}
+        >
           <VStack h='' p={""} w='80%' m={"0 auto"}>
-            <Heading mb='5' color={"white"} fontSize='40px'>
-              話題のVtuber
-            </Heading>
-            <HStack justifyContent={"space-between"}>
+            <Box h='30px'></Box>
+            <Heading>PICK UP</Heading>
+            <Text>話題のVtuber</Text>
+            <Box h='20px'></Box>
+            <HStack justifyContent={"space-between"} spacing='30px'>
+              <VtuberIconCard></VtuberIconCard>
               <VtuberIconCard></VtuberIconCard>
               <VtuberIconCard></VtuberIconCard>
               <VtuberIconCard></VtuberIconCard>
             </HStack>
           </VStack>
-        </Box>
 
-        <Box h={"100px"}></Box>
-        <Box h='' p={2} w='80%' m={"0 auto"}>
-          <Heading mb='5'>話題のVtuber</Heading>
-          <HStack justifyContent={"space-between"}>
-            <Image
-              borderRadius={"50px"}
-              h={"300px"}
-              w='300px'
-              bgSize='inherit'
-              src={
-                "https://yt3.ggpht.com/ytc/AKedOLQZ7kGnEH7CsX4Eoe79iPVh6Vp6oa2iP3_kInXO=s800-c-k-c0x00ffffff-no-rj"
-              }
-              alt='a'
-            ></Image>
-            <Image
-              borderRadius={"50px"}
-              h={"300px"}
-              w='300px'
-              bgSize='inherit'
-              src={
-                "https://yt3.ggpht.com/BcgqkZ7KsqPj6dIT0NIHWqOLt8XcogzwdI5miNwr412ocSwGP057XIy8-ji9kk_hp6MuKPpW4w=s800-c-k-c0x00ffffff-no-rj"
-              }
-              alt='a'
-            ></Image>
-            <Image
-              borderRadius={"50px"}
-              h={"300px"}
-              w='300px'
-              bgSize='inherit'
-              src={
-                "https://yt3.ggpht.com/BcgqkZ7KsqPj6dIT0NIHWqOLt8XcogzwdI5miNwr412ocSwGP057XIy8-ji9kk_hp6MuKPpW4w=s800-c-k-c0x00ffffff-no-rj"
-              }
-              alt='a'
-            ></Image>
-            <Image
-              borderRadius={"50px"}
-              h={"300px"}
-              w='300px'
-              bgSize='inherit'
-              src={
-                "https://yt3.ggpht.com/BcgqkZ7KsqPj6dIT0NIHWqOLt8XcogzwdI5miNwr412ocSwGP057XIy8-ji9kk_hp6MuKPpW4w=s800-c-k-c0x00ffffff-no-rj"
-              }
-              alt='a'
-            ></Image>
-          </HStack>
+          <Box h='100px'></Box>
+
+          {/* <VStack h='' p={""} w='80%' m={"0 auto"}>
+            <Box h='20px'></Box>
+            <Heading>RANKING</Heading>
+            <Text>最も推し活してるユーザー</Text>
+            <Box h='20px'></Box>
+            <HStack justifyContent={"space-between"} spacing='30px'>
+              <VtuberIconCard></VtuberIconCard>
+              <VtuberIconCard></VtuberIconCard>
+              <VtuberIconCard></VtuberIconCard>
+            </HStack>
+          </VStack>
+
+          <Box h='100px'></Box> */}
+
+          <VStack h='' p={""} w='80%' m={"0 auto"}>
+            <Box h='20px'></Box>
+            <Heading>SONG</Heading>
+            <Text>オススメの歌ってみた</Text>
+            <Box h='20px'></Box>
+            <HStack justifyContent={"space-between"} spacing='30px'>
+              <YouTube videoId='xhgDks7aDqo'></YouTube>
+            </HStack>
+          </VStack>
         </Box>
       </Box>
     </>

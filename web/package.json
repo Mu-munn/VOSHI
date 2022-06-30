@@ -20,7 +20,8 @@
     "react-icons": "^4.3.1",
     "react-markdown": "^8.0.0",
     "react-youtube": "^9.0.2",
-    "remark-gfm": "^3.0.1"
+    "remark-gfm": "^3.0.1",
+    "swiper": "^8.2.6"
   },
   "devDependencies": {
     "@chakra-ui/icons": "^1.1.1",
