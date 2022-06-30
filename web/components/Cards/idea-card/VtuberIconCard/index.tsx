@@ -3,6 +3,7 @@ import {
   Center,
   Container,
   Heading,
+  HStack,
   Image,
   Link,
   Text,
@@ -27,7 +28,10 @@ export default function VtuberIconCard() {
             }
             alt="a"
           ></Image>
-          <OfficeCardTag></OfficeCardTag>
+          <HStack position={"absolute"} left={"10px"} bottom="55px">
+            <OfficeCardTag></OfficeCardTag>
+          </HStack>
+
           <Center
             borderBottomRadius={radiusSize}
             bgColor={"rgba(0,0,0,0.8)"}
