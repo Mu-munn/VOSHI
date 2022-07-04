@@ -23,17 +23,16 @@ export const NavbarWithAvator = () => {
   return (
     <Box
       as='section'
-      pb={{ base: "12", md: "12" }}
-      bg={""}
+      pb={{ base: "1", md: "1" }}
       zIndex={"sticky"}
       position='sticky'
       top={0}
       fontWeight='light'
+      bgColor='transparent'
     >
       {/* <Box as="section" pb={{ base: '12', md: '12' }} bg={'transparent'} zIndex={'sticky'}  position='sticky' top={0}></Box> */}
-      <Box as='nav' bg='transparent' >
-        {/* Box as="nav" bg="white" boxShadow={useColorModeValue('sm', 'sm-dark')} bgColor=""> */}
-        <Box py={{ base: "2", lg: "2" }} bg='' w='100%' px={6}>
+      <Box as='nav' bgColor='transparent' >
+        <Box py={{ base: "2", lg: "2" }}  w='100%' px={6}>
           <Flex justify='space-between'>
             <HStack spacing='4'>
               {/* <Logo /> */}
