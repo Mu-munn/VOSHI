@@ -47,6 +47,7 @@ export default function Home() {
       </Head>
       <Box bgColor={"aliceblue"}>
         <NavbarWithAvator></NavbarWithAvator>
+        <Box h={"60px"}></Box>
         <VStack mb='150px' bgColor={""}>
           <Heading textAlign={"left"}>COMMUNITY</Heading>
           <Text>話題のコミュニティ</Text>
