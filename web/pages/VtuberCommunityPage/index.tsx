@@ -25,15 +25,20 @@ export default function VtuberCommunityPage() {
   return (
     <Box backgroundColor={"aliceblue"}>
       <NavbarWithAvator></NavbarWithAvator>
-      <Center backgroundColor={"skyblue"} w={"100%"}>
-        <Box>
+      <Center 
+      backgroundColor={"skyblue"} 
+      w={"100%"}
+      borderBottomLeftRadius={"200px"}
+      >
           <Box h={"30px"}></Box>
-          <HStack justifyContent={"space-between"} spacing='100px'>
-            <Box>
+          <HStack justifyContent={"space-between"} spacing='200px'>
+            <Box
+            
+            >
               <HStack>
                 <Image
                   marginLeft={"30px"}
-                  borderRadius={"50px"}
+                  borderRadius={"90%"}
                   h={"300px"}
                   w={"300px"}
                   bgSize="inherit"
@@ -47,7 +52,7 @@ export default function VtuberCommunityPage() {
             <VStack>
               <Box>
                 <HStack justifyContent={"space-between"} spacing='30px'>
-                  <Heading>
+                  <Heading fontSize={"100px"} fontWeight="light">
                     <div className="VtuberCommunityPageText" id="WhiteText">
                       一ノ瀬　うるは
                     </div>
@@ -73,7 +78,6 @@ export default function VtuberCommunityPage() {
             </VStack>
           </HStack>
           <Box h={"30px"}></Box>
-        </Box>
       </Center>
       <Box h={"30px"}></Box>
       <VStack>
