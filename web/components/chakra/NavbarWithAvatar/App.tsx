@@ -31,8 +31,8 @@ export const NavbarWithAvator = () => {
       bgColor='transparent'
     >
       {/* <Box as="section" pb={{ base: '12', md: '12' }} bg={'transparent'} zIndex={'sticky'}  position='sticky' top={0}></Box> */}
-      <Box as='nav' bgColor='transparent' >
-        <Box py={{ base: "2", lg: "2" }}  w='100%' px={6}>
+      <Box as='nav' bgColor='transparent'>
+        <Box py={{ base: "2", lg: "2" }} w='100%' px={6}>
           <Flex justify='space-between'>
             <HStack spacing='4'>
               {/* <Logo /> */}
@@ -49,14 +49,35 @@ export const NavbarWithAvator = () => {
                   <IconButton icon={<FiSettings fontSize="1.25rem" />} aria-label="Settings" />
                   <IconButton icon={<FiHelpCircle fontSize='1.25rem' />} aria-label='Help Center' />
                 </ButtonGroup> */}
-                <ButtonGroup spacing='4' fontFamily={""}>
-                  <Button variant={"ghost"} colorScheme='pin2k' w={"130-px"} as="a" href="/Community">
+                <ButtonGroup spacing='4' fontFamily={""} color='gray'>
+                  <Button
+                    variant={"ghost"}
+                    colorScheme='pin2k'
+                    w={"130-px"}
+                    as='a'
+                    href='/Community'
+                    _hover={{ color: "black" }}
+                  >
                     COMMUNITY
                   </Button>
-                  <Button variant={"ghost"} colorScheme='pin2k' w={"130-px"} as="a" href="/VTuber">
+                  <Button
+                    variant={"ghost"}
+                    colorScheme='pin2k'
+                    w={"130-px"}
+                    as='a'
+                    href='/VTuber'
+                    _hover={{ color: "black" }}
+                  >
                     VTUBER
                   </Button>
-                  <Button variant={"ghost"} colorScheme='pin2k' w={"130-px"} as="a" href="/Songs">
+                  <Button
+                    variant={"ghost"}
+                    colorScheme='pin2k'
+                    w={"130-px"}
+                    as='a'
+                    href='/Songs'
+                    _hover={{ color: "black" }}
+                  >
                     SONGS
                   </Button>
                 </ButtonGroup>
