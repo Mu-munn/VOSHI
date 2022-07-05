@@ -25,59 +25,57 @@ export default function VtuberCommunityPage() {
   return (
     <Box backgroundColor={"aliceblue"}>
       <NavbarWithAvator></NavbarWithAvator>
-      <Center 
-      backgroundColor={"skyblue"} 
-      w={"100%"}
-      borderBottomLeftRadius={"200px"}
+      <Center
+        backgroundColor={"skyblue"}
+        w={"100%"}
+        borderBottomLeftRadius={"200px"}
+        h="350px"
       >
-          <Box h={"30px"}></Box>
-          <HStack justifyContent={"space-between"} spacing='200px'>
-            <Box
-            
-            >
-              <HStack>
-                <Image
-                  marginLeft={"30px"}
-                  borderRadius={"90%"}
-                  h={"300px"}
-                  w={"300px"}
-                  bgSize="inherit"
-                  src={
-                    "https://yt3.ggpht.com/ytc/AKedOLQZ7kGnEH7CsX4Eoe79iPVh6Vp6oa2iP3_kInXO=s800-c-k-c0x00ffffff-no-rj"
-                  }
-                  alt="a"
-                ></Image>
+        <HStack justifyContent={"space-between"} spacing="200px">
+          <Box>
+            <HStack>
+              <Image
+                marginLeft={"30px"}
+                borderRadius={"90%"}
+                h={"300px"}
+                w={"300px"}
+                bgSize="inherit"
+                src={
+                  "https://yt3.ggpht.com/ytc/AKedOLQZ7kGnEH7CsX4Eoe79iPVh6Vp6oa2iP3_kInXO=s800-c-k-c0x00ffffff-no-rj"
+                }
+                alt="a"
+              ></Image>
+            </HStack>
+          </Box>
+          <VStack>
+            <Box>
+              <HStack justifyContent={"space-between"} spacing="30px">
+                <Heading fontSize={"100px"} fontWeight="light">
+                  <div className="VtuberCommunityPageText" id="WhiteText">
+                    一ノ瀬　うるは
+                  </div>
+                </Heading>
+                <OfficeCardTag></OfficeCardTag>
               </HStack>
             </Box>
-            <VStack>
-              <Box>
-                <HStack justifyContent={"space-between"} spacing='30px'>
-                  <Heading fontSize={"100px"} fontWeight="light">
-                    <div className="VtuberCommunityPageText" id="WhiteText">
-                      一ノ瀬　うるは
-                    </div>
-                  </Heading>
-                  <OfficeCardTag></OfficeCardTag>
-                </HStack>
-              </Box>
 
-              <Box>
-                <HStack justifyContent={"space-between"} spacing='30px'>
-                  <Link
-                    href="https://www.youtube.com/channel/UC5LyYg6cCA4yHEYvtUsir3g"
-                    isExternal
-                  >
-                    <div className="VtuberCommunityPageText">Youtube</div>
-                  </Link>
+            <Box>
+              <HStack justifyContent={"space-between"} spacing="50px">
+                <Link
+                  href="https://www.youtube.com/channel/UC5LyYg6cCA4yHEYvtUsir3g"
+                  isExternal
+                >
+                  <div className="VtuberCommunityPageText">Youtube</div>
+                </Link>
 
-                  <Link href="https://twitter.com/uruha_ichinose" isExternal>
-                    <div className="VtuberCommunityPageText">Twitter</div>
-                  </Link>
-                </HStack>
-              </Box>
-            </VStack>
-          </HStack>
-          <Box h={"30px"}></Box>
+                <Link href="https://twitter.com/uruha_ichinose" isExternal>
+                  <div className="VtuberCommunityPageText">Twitter</div>
+                </Link>
+              </HStack>
+            </Box>
+          </VStack>
+        </HStack>
+        <Box h={"30px"}></Box>
       </Center>
       <Box h={"30px"}></Box>
       <VStack>
@@ -86,8 +84,6 @@ export default function VtuberCommunityPage() {
       </VStack>
       <Box h="30px" w={"80%"} pos={"relative"}>
         <Button
-          // rightIcon={<ArrowForwardIcon />}
-          // variant='unstyled'
           position={"absolute"}
           bottom="0px"
           right="0px"
@@ -97,8 +93,6 @@ export default function VtuberCommunityPage() {
       </Box>
       <Box h={"30px"}></Box>
       <Center m={"auto 0"}>
-        {/* ここスライドにしたい */}
-        {/* <ArticleSliders></ArticleSliders> */}
         <VStack>
           <HStack>
             <ArticleCard></ArticleCard>
@@ -119,8 +113,6 @@ export default function VtuberCommunityPage() {
       </VStack>
       <Box h="30px" w={"80%"} pos={"relative"}>
         <Button
-          // rightIcon={<ArrowForwardIcon />}
-          // variant='unstyled'
           position={"absolute"}
           bottom="0px"
           right="0px"
@@ -130,10 +122,8 @@ export default function VtuberCommunityPage() {
       </Box>
       <Box h={"30px"}></Box>
       <Center m={"auto 0"}>
-        {/* ここスライドにしたい */}
-        {/* <ArticleSliders></ArticleSliders> */}
         <VStack>
-          <HStack justifyContent={"space-between"} spacing='30px'>
+          <HStack justifyContent={"space-between"} spacing="30px">
             <VtuberIconCard></VtuberIconCard>
             <VtuberIconCard></VtuberIconCard>
             <VtuberIconCard></VtuberIconCard>
