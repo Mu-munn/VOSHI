@@ -69,7 +69,7 @@ export default function VtuberCommunityPage() {
                 </Link>
 
                 <Link href="https://twitter.com/uruha_ichinose" isExternal>
-                  <div className="VtuberCommunityPageText">Twitter</div>
+                  <Image src={"../img/twitter.png"} alt="twitter.png"></Image>
                 </Link>
               </HStack>
             </Box>
@@ -83,11 +83,7 @@ export default function VtuberCommunityPage() {
         <Text>コミュニティ</Text>
       </VStack>
       <Box h="30px" w={"80%"} pos={"relative"}>
-        <Button
-          position={"absolute"}
-          bottom="0px"
-          right="0px"
-        >
+        <Button position={"absolute"} bottom="0px" right="0px">
           LEARN MORE ＞
         </Button>
       </Box>
@@ -112,11 +108,7 @@ export default function VtuberCommunityPage() {
         <Text>関連のVtuber</Text>
       </VStack>
       <Box h="30px" w={"80%"} pos={"relative"}>
-        <Button
-          position={"absolute"}
-          bottom="0px"
-          right="0px"
-        >
+        <Button position={"absolute"} bottom="0px" right="0px">
           LEARN MORE ＞
         </Button>
       </Box>
