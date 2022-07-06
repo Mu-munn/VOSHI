@@ -27,8 +27,6 @@ import { NavbarWithAvator } from "../components/chakra/NavbarWithAvatar/App"
 import VtuberIconCard from "../components/Cards/idea-card/VtuberIconCard"
 import YouTube from "react-youtube"
 import ArticleCard from "../components/Cards/idea-card/ArticleCard/app"
-import { Swiper, SwiperSlide } from "swiper/react"
-import { Pagination, Navigation } from "swiper"
 import { ArrowForwardIcon } from "@chakra-ui/icons"
 import ArticleSliders from "../components/Sliders/ArticleSlider/App"
 
@@ -53,6 +51,9 @@ export default function Home() {
           <Text>話題のコミュニティ</Text>
           <Box h='20px' w={"80%"} pos={"relative"}>
             <Button
+            // onClick={
+
+            // }
                 // rightIcon={<ArrowForwardIcon />}
                 // variant='unstyled'
                 position={"absolute"}
