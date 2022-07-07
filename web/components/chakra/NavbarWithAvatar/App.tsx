@@ -10,7 +10,7 @@ import {
   IconButton,
   Link,
   useBreakpointValue,
-  useColorModeValue,
+  useColorModeValue as mode,
   Text,
   Menu,
   MenuButton,
@@ -23,9 +23,37 @@ import * as React from "react";
 import { FiHelpCircle, FiMenu, FiSearch, FiSettings } from "react-icons/fi";
 import { Logo } from "./Logo";
 import NextLink from "next/link";
+import { useClient } from "../../../src/hooks/use-client";
+import { useAuthUser } from "../../../src/hooks/use-auth-user";
+import { useRouter } from "next/router";
+import { AuthService } from "src/service/auth-service";
+import { SignInPopup } from "components/common/SignInPopup";
 
 export const NavbarWithAvator = () => {
   const isDesktop = useBreakpointValue({ base: false, lg: true });
+
+  const { isShowLogin, setIsShowLogin } = useClient();
+  const authUser = useAuthUser();
+  const isLoggedin = authUser?.isAnonymous === false;
+
+  const router = useRouter();
+
+  React.useEffect(() => {
+    const handleShowLogin = async () => {
+      console.log(isShowLogin);
+
+      try {
+        const query = router.query;
+        const showSignIn = query.showSignIn;
+        if (showSignIn === "true") {
+          await AuthService.signOut();
+          setIsShowLogin(true);
+        }
+      } catch (error) {}
+    };
+    handleShowLogin();
+  }, [router.query]);
+
   return (
     <Box
       as="section"
@@ -88,25 +116,52 @@ export const NavbarWithAvator = () => {
                   </Button>
                 </ButtonGroup>
                 )
-                <Menu>
-                  <MenuButton as={Button}>
-                  <Avatar
-                  boxSize='10'
-                  name='Christoph Winston'
-                  src='https://tinyurl.com/yhkm2ek8'
-                  as='a'
-                ></Avatar>
-                  </MenuButton>
-                  <MenuList color={"#333333"}>
-                    <MenuGroup>
-                      <MenuItem><a href='/ProfilePage'>My Account</a></MenuItem>
-                    </MenuGroup>
-                    <MenuDivider />
-                    {/* <MenuGroup title="Help">
-                      <MenuItem>Docs</MenuItem>
-                    </MenuGroup> */}
-                  </MenuList>
-                </Menu>
+                {isLoggedin && (
+                  <Menu>
+                    <MenuButton as={Button}>
+                      <Avatar
+                        boxSize="10"
+                        name="Christoph Winston"
+                        src="https://tinyurl.com/yhkm2ek8"
+                        as="a"
+                      ></Avatar>
+                    </MenuButton>
+                    <MenuList color={"#333333"}>
+                      <MenuGroup>
+                        <MenuItem>
+                          <a href="/ProfilePage">My Account</a>
+                        </MenuItem>
+                      </MenuGroup>
+                      <MenuDivider />
+                      <MenuItem>
+                        <a href="/ProfilePage">Sign Out</a>
+                      </MenuItem>
+                    </MenuList>
+                  </Menu>
+                )}
+                {!isLoggedin && (
+                  <>
+                    <Button
+                      as="a"
+                      href="#"
+                      color={mode("blue.600", "blue.300")}
+                      fontWeight="bold"
+                      onClick={() => setIsShowLogin(true)}
+                    >
+                      ログイン
+                    </Button>
+                    <Button
+                      as="a"
+                      href="#"
+                      colorScheme="blue"
+                      fontWeight="bold"
+                      onClick={() => setIsShowLogin(true)}
+                    >
+                      無料新規登録
+                    </Button>
+                  </>
+                )}
+                :{isShowLogin && <SignInPopup></SignInPopup>}
               </HStack>
             ) : (
               <IconButton

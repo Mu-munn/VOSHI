@@ -29,7 +29,7 @@ const useLoginWithAuthProvider = () => {
         if (idToken) {
             setCookie(null, '__session', idToken)
         }
-        router.push('/MyPage')
+        router.push('/Home')
     }
     const result = useCallback(
         async (provider: AuthProvider) => {
