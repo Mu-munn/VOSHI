@@ -143,7 +143,7 @@ export default function CommunityPage() {
 
         <Box h={"28px"}></Box>
 
-        <SimpleGrid bgColor='' m={"0 auto"} wrap='wrap' columns={3} gap='5' >
+        <SimpleGrid bgColor='' m={"0 auto"}  columns={3} gap='5' >
           <ArticleCard />
           <ArticleCard />
           <ArticleCard />
