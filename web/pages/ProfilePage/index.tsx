@@ -9,158 +9,74 @@ import {
   Center,
   Flex,
   Spacer,
+  Button,
 } from "@chakra-ui/react";
 import { FaGratipay } from "react-icons/fa";
 import { NavbarWithAvator } from "../../components/chakra/NavbarWithAvatar/App";
 import { Card } from "../../components/Cards/idea-card/App";
+import VtuberIconCard from "../../components/Cards/idea-card/VtuberIconCard";
 
 export const ProfilePage = () => {
   return (
-    <Box bg="gray.100">
+    <Box bg="aliceblue">
       <NavbarWithAvator></NavbarWithAvator>
-      <VStack w={"80%"} m={"auto"}>
-        <Heading color={"#333333"} my={"50px"}>
-          PROFILE
-        </Heading>
-        <HStack bgColor={""} w={"75%"} py={"50px"}>
-          <Spacer></Spacer>
-          <Avatar
-            size={"lg"}
-            src="https://avatars.githubusercontent.com/u/86332503?v=4"
-          ></Avatar>
-          <Text pl={"25px"} fontSize={"42px"}>
-            Mu-munn
-          </Text>
-          <Spacer></Spacer>
-        </HStack>
-        <Flex justifyContent={"space-between"} w={"850px"}>
-          {/* <Center
-            fontWeight={"bold"}
-            fontSize="30px"
-            bgColor={"white"}
-            borderRadius={"lg"}
-            h={200}
-            w={200}
-            p={4}
-          >
-            <Avatar
-              size={"lg"}
-              src="https://avatars.githubusercontent.com/u/86332503?v=4"
-            ></Avatar>
-          </Center> */}
-          <Box
-            bgColor={"white"}
-            borderRadius={"lg"}
-            h={200}
-            w={200}
-            p={4}
-            textAlign="center"
-          >
-            <Text>プロフィール</Text>
-            <Center fontWeight={"bold"} fontSize="30px" bgColor={""} h={"80%"}>
-              詳細
-            </Center>
-          </Box>
-
-          <Box
-            bgColor={"white"}
-            borderRadius={"lg"}
-            h={200}
-            w={200}
-            p={4}
-            textAlign="center"
-          >
-            <Text>プロジェクト成功率</Text>
-            <Center fontWeight={"bold"} fontSize="30px" bgColor={""} h={"80%"}>
-              100%
-            </Center>
-          </Box>
-          <Box
-            bgColor={"white"}
-            borderRadius={"lg"}
-            h={200}
-            w={200}
-            p={4}
-            textAlign="center"
-          >
-            <Text>プロジェクト成功率</Text>
-            <Center fontWeight={"bold"} fontSize="30px" bgColor={""} h={"80%"}>
-              100%
-            </Center>
-          </Box>
-        </Flex>
-        <Box h={"20px"}></Box>
-        <Flex justifyContent={"space-between"} w={"850px"}>
-          <Box
-            bgColor={"white"}
-            borderRadius={"lg"}
-            h={200}
-            w={200}
-            p={4}
-            textAlign="center"
-          >
-            <Text>参加数</Text>
-            <Center fontWeight={"bold"} fontSize="30px" bgColor={""} h={"80%"}>
-              3回
-            </Center>
-          </Box>
-          <Box
-            bgColor={"white"}
-            borderRadius={"lg"}
-            h={200}
-            w={200}
-            p={4}
-            textAlign="center"
-          >
-            <Text>プロジェクト成功率</Text>
-            <Center fontWeight={"bold"} fontSize="30px" bgColor={""} h={"80%"}>
-              100%
-            </Center>
-          </Box>
-          <Box
-            bgColor={"white"}
-            borderRadius={"lg"}
-            h={200}
-            w={200}
-            p={4}
-            textAlign="center"
-          >
-            <Text>プロジェクト成功率</Text>
-            <Center fontWeight={"bold"} fontSize="30px" bgColor={""} h={"80%"}>
-              100%
-            </Center>
-          </Box>
-        </Flex>
-        <Box h={"80px"}></Box>
+      <Box
+        w={"100%"}
+        // borderBottomRadius={"200px"}
+        h="350px"
+        bgGradient="linear(to-b, aliceblue,yellow,aliceblue)" //推しのテーマカラーに真ん中の値を変更可能にする
+      >
+        <Box position={"relative"}>
+          <Button position={"absolute"} top="5%" right="20%">
+            Edit
+          </Button>
+          <VStack>
+            <Avatar h={"200px"} w={"200px"} src="" />
+            <Text fontSize={"100px"}>たまたま</Text>
+          </VStack>
+        </Box>
         <VStack>
-          <Text
-            fontSize={"30px"}
-            my={"20px"}
-            textAlign="left"
-            bgColor={""}
-            w="850px"
-            color={"#333333"}
-          >
-            現在のプロジェクト
-          </Text>
-          <Card></Card>
+          <Box h={"50px"}></Box>
+          {/*空白*/}
+          <Text fontSize={"50px"}>FAVORITE</Text>
+          <Text>推し</Text>
+          <HStack justifyContent={"space-between"} spacing="30px">
+            <VtuberIconCard></VtuberIconCard>
+          </HStack>
+          <Box h={"50px"}></Box>
+          {/*空白*/}
+          <Text fontSize={"50px"}>INTRODUCTION</Text>
+          <Text>自己紹介</Text>
+          <Text fontSize={"25px"}>!!!!aaaaaaaaaaaaaaaaaaaaaa!!!!</Text>
+          <Box h={"50px"}></Box>
+          {/*空白*/}
+          <Text fontSize={"50px"}>RECORD</Text>
+          <Text>記録</Text>
+          <HStack>
+            <Center bgColor={"gray.200"} w="200px" h="200px" borderRadius={"lg"}>
+              <VStack>
+                <Text fontSize={"25px"}>視聴回数</Text>
+                <Text fontSize={"40px"}>100</Text>
+                <Text fontSize={"25px"}>回</Text>
+              </VStack>
+            </Center>
+            <Center bgColor={"gray.200"} w="200px" h="200px" borderRadius={"lg"}>
+              <VStack>
+                <Text fontSize={"25px"}>視聴回数</Text>
+                <Text fontSize={"40px"}>100</Text>
+                <Text fontSize={"25px"}>回</Text>
+              </VStack>
+            </Center><Center bgColor={"gray.200"} w="200px" h="200px" borderRadius={"lg"}>
+              <VStack>
+                <Text fontSize={"25px"}>視聴回数</Text>
+                <Text fontSize={"40px"}>100</Text>
+                <Text fontSize={"25px"}>回</Text>
+              </VStack>
+            </Center>
+          </HStack>
         </VStack>
-        <Box h={"80px"}></Box>
-        <VStack spacing={"5"}>
-          <Text
-            fontSize={"30px"}
-            my={"20px"}
-            textAlign="left"
-            bgColor={""}
-            w="850px"
-            color={"#333333"}
-          >
-            完成したプロジェクト
-          </Text>
-          <Card></Card>
-          <Card></Card> <Card></Card>
-        </VStack>
-      </VStack>
+      </Box>
+      <Box h={"100000px"}></Box> {/*スクロールするためのスペース「削除予定」 */}
     </Box>
   );
 };
