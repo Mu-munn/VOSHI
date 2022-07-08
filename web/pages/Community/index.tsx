@@ -164,13 +164,7 @@ export default function CommunityPage() {
 
         <Box h={"28px"}></Box>
 
-        <SimpleGrid
-          w={"87%"}
-          bgColor=""
-          m={"0 auto"}
-          columns={[2, null, 3]}
-          spacing="40px"
-        >
+        <SimpleGrid w={"100%"} bgColor='red' m={"0 auto"} columns={[2, null, 3]} spacing='40px'>
           <ArticleCard />
           <ArticleCard />
           <ArticleCard />
