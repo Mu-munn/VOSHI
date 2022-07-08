@@ -1,22 +1,63 @@
-import { Avatar, AvatarGroup, Box, Heading, HStack, Icon, Stack, Tag, Text } from "@chakra-ui/react"
+import {
+  Avatar,
+  AvatarGroup,
+  Box,
+  Heading,
+  HStack,
+  Icon,
+  Stack,
+  Tag,
+  Text,
+  VStack,
+} from "@chakra-ui/react"
 
 export default function ArticleCard() {
   return (
-    <Box
-      bgGradient='linear(to-t, #fa709a, #fee140)'
-      h='240px'
-      w='450px'
+    <Stack
+      justifyContent={"space-between"}
+      bgColor={"#ff5c76"}
+      
+      h='230px'
+      w='430px'
       borderRadius={"20px"}
-      boxShadow='2xl'
+      // boxShadow='2xl'
       p={"3"}
       pos='relative'
+      _hover={{ opacity:'70%' ,}}
+      transition='0.5s'
     >
-      <Stack>
-        <Heading h={"80%"} bgColor='' fontWeight={"light"} color='#343434'>
-          今日の配信が良かったああああああ件
-        </Heading>
-      </Stack>
-      <HStack position={"absolute"} bottom='15px' right={"10px"}>
+      <Heading
+        h={"100px"}
+        // bgColor='#fa788d'
+        fontWeight={"light"}
+        // color='#343434'
+        color='white'
+        borderRadius={"md"}
+        // opacity='90%'
+        p={1}
+       textShadow='2px 2px #ff0000'
+      >
+        今日の配信が良かったああああああ件
+      </Heading>
+
+      <HStack p={1}>
+        <Tag variant={"solid"} size={"md"} colorScheme={"cyan"}>
+          配信
+        </Tag>
+        <Tag variant={"solid"} size={"md"} colorScheme={"yellow"}>
+          配信
+        </Tag>
+        <Tag variant={"solid"} size={"md"} colorScheme={"yellow"}>
+          配信
+        </Tag>
+      </HStack>
+
+      <HStack justifyContent={"space-between"} bgColor='' w={"100%"}>
+        <Avatar
+          name=''
+          size={"lg"}
+          src='https://yt3.ggpht.com/o4GRKhWWG_vvRHtD7PygytWqZNpN8fQD2NTdtmZrFCLjbGJrW9lhJZWmlvdNRc13nd4H7VrLXLc=s800-c-k-c0x00ffffff-no-rj'
+        />
         <AvatarGroup size='md' max={5}>
           <Avatar name='Ryan Florence' src='https://bit.ly/ryan-florence' />
           <Avatar name='Segun Adebayo' src='https://bit.ly/sage-adebayo' />
@@ -30,18 +71,6 @@ export default function ArticleCard() {
           <Avatar name='Christian Nwamba' src='https://bit.ly/code-beast' />
         </AvatarGroup>
       </HStack>
-      <HStack position={"absolute"} bottom='15px' left={"10px"}></HStack>
-      <HStack position={"absolute"} bottom='95px' p={1}>
-        <Tag variant={"solid"} size={"md"} colorScheme={"green"}>
-          配信
-        </Tag>
-        <Tag variant={"solid"} size={"md"} colorScheme={"orange"}>
-          配信
-        </Tag>
-        <Tag variant={"solid"} size={"md"} colorScheme={"yellow"}>
-          配信
-        </Tag>
-      </HStack>
-    </Box>
+    </Stack>
   )
 }
