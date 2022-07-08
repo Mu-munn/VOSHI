@@ -15,6 +15,13 @@ import {
   HStack,
   IconButton,
   Input,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
   SimpleGrid,
   Stack,
   Tag,
@@ -28,6 +35,7 @@ import ArticleCard from "../../components/Cards/idea-card/ArticleCard/app"
 import OfficeCardTag from "../../components/Cards/idea-card/CardTag"
 import { NavbarWithAvator } from "../../components/chakra/NavbarWithAvatar/App"
 import { BiCategory } from 'react-icons/bi';
+import AddNewModal from "components/Popups/AddNewModal/App"
 
 export default function CommunityPage() {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -38,6 +46,7 @@ export default function CommunityPage() {
     test.push("aa")
     test.push("aa")
   }
+  const [isShow, setIsShow] = useState(false)
   const reptiles = ["alligator", "snake", "lizard"]
   return (
     <Box bgColor={"aliceblue"} h='2000px'>
@@ -61,6 +70,11 @@ export default function CommunityPage() {
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
+
+      {isShow === true && (
+        < AddNewModal></AddNewModal>
+      )}
+
       <NavbarWithAvator></NavbarWithAvator>
       <Stack justify={"space-between"} w='95%' direction={"row"} m={"0 auto"} alignItems={"end"}>
         <Heading
@@ -133,7 +147,8 @@ export default function CommunityPage() {
                 onClick={onOpen}
               />
               <Box w={"10px"}></Box>
-              <Button bgColor='#FF0080' color={"white"} fontWeight={"light"} borderRadius='full'>
+
+              <Button bgColor='#FF0080' color={"white"} fontWeight={"light"} borderRadius='full' onClick={()=>{setIsShow(true)}}>
                 ADD NEW
               </Button>
               <Box w={"30px"}></Box>
