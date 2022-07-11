@@ -2,6 +2,7 @@ import { PhoneIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
+  Center,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -163,23 +164,24 @@ export default function CommunityPage() {
         </Box>
 
         <Box h={"28px"}></Box>
-
-        <SimpleGrid w={"100%"} bgColor='' m={"0 auto"} columns={[2, null, 3]} spacing='40px'>
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
-        </SimpleGrid>
+        <Center>
+          <SimpleGrid columns={[2, null, 3]} spacing="40px">
+              <ArticleCard />
+              <ArticleCard />
+              <ArticleCard />
+              <ArticleCard />
+              <ArticleCard />
+              <ArticleCard />
+              <ArticleCard />
+              <ArticleCard />
+              <ArticleCard />
+              <ArticleCard />
+              <ArticleCard />
+              <ArticleCard />
+              <ArticleCard />
+              <ArticleCard />
+          </SimpleGrid>
+        </Center>
       </Box>
     </Box>
   );
