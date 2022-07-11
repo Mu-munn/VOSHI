@@ -2,6 +2,7 @@ import { PhoneIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
+  color,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -106,13 +107,22 @@ export default function CommunityPage() {
             <ModalBody>
               <form>
                 <label>Title</label>
-                <input type="text" ></input>
+                <input type="text"></input>
                 <br></br>
                 <label>Tag</label>
                 <input type="text"></input>
                 <br></br>
                 <label>Icon</label>
-                <input type="text"></input>
+                <select>
+                  <option>一ノ瀬うるは</option>
+                  <option>橘ひなの</option>
+                  <option>藍沢エマ</option>
+                  <option>空澄 セナ</option>
+                  <option>花芽 すみれ</option>
+                  <option>花芽 なずな</option>
+                  <option>神成きゅぴ</option>
+                  <option>如月 れん</option>
+                </select>
                 <br></br>
                 <label>Text</label>
                 <input type="text"></input>
