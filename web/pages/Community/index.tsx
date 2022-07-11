@@ -85,27 +85,6 @@ export default function CommunityPage() {
         >
           COMMUNITY
         </Heading>
-        {/* <HStack>
-          <IconButton
-            bgColor={"#FF0080"}
-            aria-label='Call Segun'
-            size='lg'
-            icon={<PhoneIcon />}
-            borderRadius='90%'
-            color={"white"}
-          />
-          <Box w={"20px"}></Box>
-          <Button
-            bgColor='#FF0080'
-            color={"white"}
-            fontWeight={"light"}
-            onClick={onOpen}
-            ref={btnRef}
-          >
-            ADD NEW
-          </Button>
-          <Box w={"30px"}></Box>
-        </HStack> */}
       </Stack>
 
       <Box h={"28px"}></Box>
