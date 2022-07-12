@@ -150,23 +150,23 @@ export const NavbarWithAvator = () => {
                 )}
                 {!isLoggedin && (
                   <>
-                    <Button
+                    {/* <Button
+                      fontWeight={"normal"}
                       as="a"
                       href="#"
                       color={mode("blue.600", "blue.300")}
-                      fontWeight="bold"
                       onClick={() => setIsShowLogin(true)}
                     >
                       ログイン
-                    </Button>
+                    </Button> */}
                     <Button
-                      as="a"
-                      href="#"
+                      fontWeight={"normal"}
+                      // as="a"
+                      // href="#"
                       colorScheme="blue"
-                      fontWeight="bold"
                       onClick={() => setIsShowLogin(true)}
                     >
-                      無料新規登録
+                      ログイン
                     </Button>
                   </>
                 )}
