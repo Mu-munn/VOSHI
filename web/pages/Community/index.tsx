@@ -2,6 +2,7 @@ import { PhoneIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
+  Center,
   color,
   Drawer,
   DrawerBody,
@@ -11,6 +12,8 @@ import {
   DrawerHeader,
   DrawerOverlay,
   Flex,
+  FormControl,
+  FormLabel,
   Grid,
   Heading,
   HStack,
@@ -23,6 +26,7 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  Select,
   SimpleGrid,
   Stack,
   Tag,
@@ -31,7 +35,7 @@ import {
   useDisclosure,
   VStack,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 import ArticleCard from "../../components/Cards/idea-card/ArticleCard/app";
 import OfficeCardTag from "../../components/Cards/idea-card/CardTag";
 import { NavbarWithAvator } from "../../components/chakra/NavbarWithAvatar/App";
@@ -49,6 +53,47 @@ export default function CommunityPage() {
   };
   const [isShow, setIsShow] = useState(false);
   const reptiles = ["alligator", "snake", "lizard"];
+
+  // const [isSubmit, setIsSubmit] = useState(false);
+  // const submit = async (e: FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   setIsSubmit(true);
+  //   return;
+  // };
+  // const submitData: AddNewCreate = {
+  //   ...fieldValues,
+  //   created: serverTimestamp(),
+  // };
+  // try {
+  //   const submitDataWithId = await AddNewCreate.createInternshipEntry({
+  //     AddNewCreate : submitData,
+  //     Title : Title,
+  //     Icon : Icon,
+  //     Tag : Tag,
+  //   })
+  // }catch{
+    
+  // }
+
+    // 参考ここから
+    // const submit = async (e: FormEvent<HTMLFormElement>) => {
+    //   e.preventDefault()
+    //     setIsShowLogin(true)
+    //     return
+    //   }
+    //   setIsLoading(true)
+  
+    //   const submitData: InternshipEntryCreate = {
+    //     ...fieldValues,
+    //     created: serverTimestamp(),
+    //   }
+    //   try {
+    //     const submitDataWithId = await InternshipEntryService.createInternshipEntry({
+    //       internshipEntryCreate: submitData,
+    //       corpId: internship.corpId,
+    //       userId: userId,
+    //     })
+        // 参考ここまで
   return (
     <Box bgColor={"aliceblue"} h="2000px">
       <Drawer
@@ -101,19 +146,20 @@ export default function CommunityPage() {
           isCentered
         >
           <ModalOverlay />
-          <ModalContent>
+          <ModalContent h="600px" maxW="1000px">
             <ModalHeader>ADD NEW</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
-              <form>
-                <label>Title</label>
-                <input type="text"></input>
-                <br></br>
-                <label>Tag</label>
-                <input type="text"></input>
-                <br></br>
-                <label>Icon</label>
-                <select>
+              <FormControl isRequired>
+                <FormLabel htmlFor="first-name" fontSize={"30px"}>
+                  Title
+                </FormLabel>
+                <Input id="Title" placeholder="Input Title" size={"lg"} />
+                <Box height={"20px"}></Box>
+                <FormLabel htmlFor="Icon" fontSize={"30px"}>
+                  Icon
+                </FormLabel>
+                <Select id="Icon" placeholder="Select Vtuber" size={"lg"}>
                   <option>一ノ瀬うるは</option>
                   <option>橘ひなの</option>
                   <option>藍沢エマ</option>
@@ -122,11 +168,14 @@ export default function CommunityPage() {
                   <option>花芽 なずな</option>
                   <option>神成きゅぴ</option>
                   <option>如月 れん</option>
-                </select>
-                <br></br>
-                <label>Text</label>
-                <input type="text"></input>
-              </form>
+                </Select>
+                <Box height={"20px"}></Box>
+                <FormLabel htmlFor="Tag" fontSize={"30px"}>
+                  Tag
+                </FormLabel>
+                <Input id="Tag" placeholder="Input Tag" size={"lg"} />
+                <Box height={"20px"}></Box>
+              </FormControl>
             </ModalBody>
             <ModalFooter>
               <Button
