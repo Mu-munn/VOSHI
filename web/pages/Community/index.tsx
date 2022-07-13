@@ -28,6 +28,8 @@ import ArticleCard from "../../components/Cards/idea-card/ArticleCard/app"
 import OfficeCardTag from "../../components/Cards/idea-card/CardTag"
 import { NavbarWithAvator } from "../../components/chakra/NavbarWithAvatar/App"
 import { BiCategory } from 'react-icons/bi';
+import { CommunityService } from "src/service/community-service"
+import { Community } from "@/project-types/community"
 
 export default function CommunityPage() {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -37,6 +39,19 @@ export default function CommunityPage() {
     test.push("aa")
     test.push("aa")
     test.push("aa")
+  }
+  const submit = async ()=>{
+    const submitData: Community = {
+      id:"aabc",
+      name:"bbcd",
+      title:"ccde",
+      tag:"ddef"
+
+    }
+    const submitdata = await CommunityService.createOrUpdateCommunity({
+      community:submitData
+    })
+    
   }
   const reptiles = ["alligator", "snake", "lizard"]
   return (
@@ -133,7 +148,8 @@ export default function CommunityPage() {
                 onClick={onOpen}
               />
               <Box w={"10px"}></Box>
-              <Button bgColor='#FF0080' color={"white"} fontWeight={"light"} borderRadius='full'>
+              <Button bgColor='#FF0080' color={"white"} fontWeight={"light"} borderRadius='full' 
+              onClick={submit}>
                 ADD NEW
               </Button>
               <Box w={"30px"}></Box>

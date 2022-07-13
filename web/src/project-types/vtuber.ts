@@ -1,12 +1,12 @@
 import { Office } from "./office"
 
 export type Vtuber = {
-    id : String
-    name : String
+    id : string
+    name : string
     isIndividual : boolean
     office : Office
-    imageUrl : String
-    youtubeUrl : String
-    twitterUrl : String
+    imageUrl : string
+    youtubeUrl : string
+    twitterUrl : string
 }
 
