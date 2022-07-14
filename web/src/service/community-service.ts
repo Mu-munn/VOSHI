@@ -1,11 +1,11 @@
 import { Community } from "@/project-types/community"
 import { doc, getFirestore, serverTimestamp, setDoc } from "firebase/firestore"
 import { app } from "../utils/firebase/init"
-
+import { v4 as uuidv4 } from 'uuid';
 
 
 export class CommunityService {
-    static createOrUpdateCommunity = async ({
+    static createCommunity = async ({
         community
 
     }: {
@@ -13,32 +13,21 @@ export class CommunityService {
 
     }): Promise<void> => {
         const db = getFirestore(app)
-        if (community.id) {
-            const communityRef = doc(db, 'community', community.id)
-            try {
-                await setDoc(
-                    communityRef, {
-                    ...community,
-                    updated: serverTimestamp(),
-                },
-                    { merge: true }
-                )
-            }
-            catch (e) {
-                throw new Error('communityの更新に失敗しました')
-            }
-        }else{
-            const newcommunityRef = doc(db, 'community')
-            try{
-                await setDoc(newcommunityRef,{
-                    ...community
-                })
-
-            }catch(e){
-                throw new Error('communityの更新に失敗しました')
-            }
-
-        }
         
+        const uuid = uuidv4()
+
+        const newcommunityRef = doc(db, 'community', uuid)
+        try {
+            await setDoc(newcommunityRef, {
+                ...community,
+                id: uuid
+            })
+
+        } catch (e) {
+            throw new Error('communityの更新に失敗しました')
+        }
+
+
+
     }
 }

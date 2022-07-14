@@ -40,17 +40,28 @@ export default function CommunityPage() {
     test.push("aa")
     test.push("aa")
   }
-  const submit = async ()=>{
+  const submit = async () => {
     const submitData: Community = {
-      id:"aabc",
-      name:"bbcd",
-      title:"ccde",
-      tag:"ddef"
+      id: "",
+      name: "bbcd",
+      title: "ccde",
+      tag: "ddef"
 
     }
-    const submitdata = await CommunityService.createOrUpdateCommunity({
-      community:submitData
-    })
+    try {
+      await CommunityService.createCommunity({
+        community: submitData
+
+      })
+      
+    }
+    catch(e){
+      console.log(e);
+      
+
+    }
+    
+     
     
   }
   const reptiles = ["alligator", "snake", "lizard"]
@@ -148,8 +159,8 @@ export default function CommunityPage() {
                 onClick={onOpen}
               />
               <Box w={"10px"}></Box>
-              <Button bgColor='#FF0080' color={"white"} fontWeight={"light"} borderRadius='full' 
-              onClick={submit}>
+              <Button bgColor='#FF0080' color={"white"} fontWeight={"light"} borderRadius='full'
+                onClick={submit}>
                 ADD NEW
               </Button>
               <Box w={"30px"}></Box>
@@ -159,7 +170,7 @@ export default function CommunityPage() {
 
         <Box h={"28px"}></Box>
 
-        <SimpleGrid bgColor='' m={"0 auto"}  columns={3} gap='5' >
+        <SimpleGrid bgColor='' m={"0 auto"} columns={3} gap='5' >
           <ArticleCard />
           <ArticleCard />
           <ArticleCard />
