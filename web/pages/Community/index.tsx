@@ -35,65 +35,41 @@ import {
   useDisclosure,
   VStack,
 } from "@chakra-ui/react";
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import ArticleCard from "../../components/Cards/idea-card/ArticleCard/app";
 import OfficeCardTag from "../../components/Cards/idea-card/CardTag";
 import { NavbarWithAvator } from "../../components/chakra/NavbarWithAvatar/App";
 import { BiCategory } from "react-icons/bi";
 import AddNewModal from "components/Popups/AddNewModal/App";
+import { Community } from "@/project-types/community";
 
 export default function CommunityPage() {
+  const defaultValue: Community = {
+    id: "",
+    name: "",
+    vtuberId: "",
+    taglds: [],
+    latestUid: [],
+  };
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
-  const [test, SetTest] = useState(["aa"]);
-  const SelectTag = () => {
-    test.push("aa");
-    test.push("aa");
-    test.push("aa");
-  };
   const [isShow, setIsShow] = useState(false);
-  const reptiles = ["alligator", "snake", "lizard"];
+  const [fieldValues, setFieldValues] = useState<Community>(defaultValue);
 
-  // const [isSubmit, setIsSubmit] = useState(false);
-  // const submit = async (e: FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   setIsSubmit(true);
-  //   return;
-  // };
-  // const submitData: AddNewCreate = {
-  //   ...fieldValues,
-  //   created: serverTimestamp(),
-  // };
-  // try {
-  //   const submitDataWithId = await AddNewCreate.createInternshipEntry({
-  //     AddNewCreate : submitData,
-  //     Title : Title,
-  //     Icon : Icon,
-  //     Tag : Tag,
-  //   })
-  // }catch{
-    
-  // }
+  const InputChange = (e: any) => {
+    const target = e.target;
+    const value = target.value;
+    const name = target.name;
+    setFieldValues({ ...fieldValues, [name]: value });
+  };
+  useEffect(() => {
+    // console.log(fieldValues);
+  });
+  const submit = () => {
+    console.log(fieldValues);
+  };
 
-    // 参考ここから
-    // const submit = async (e: FormEvent<HTMLFormElement>) => {
-    //   e.preventDefault()
-    //     setIsShowLogin(true)
-    //     return
-    //   }
-    //   setIsLoading(true)
-  
-    //   const submitData: InternshipEntryCreate = {
-    //     ...fieldValues,
-    //     created: serverTimestamp(),
-    //   }
-    //   try {
-    //     const submitDataWithId = await InternshipEntryService.createInternshipEntry({
-    //       internshipEntryCreate: submitData,
-    //       corpId: internship.corpId,
-    //       userId: userId,
-    //     })
-        // 参考ここまで
   return (
     <Box bgColor={"aliceblue"} h="2000px">
       <Drawer
@@ -125,11 +101,11 @@ export default function CommunityPage() {
             </Button>
             <Button
               colorScheme="blue"
-              onClick={SelectTag}
               bgColor="#FF0080"
               color={"white"}
               fontWeight={"light"}
               borderRadius="full"
+              onClick={() => {}}
             >
               Save
             </Button>
@@ -154,12 +130,20 @@ export default function CommunityPage() {
                 <FormLabel htmlFor="first-name" fontSize={"30px"}>
                   Title
                 </FormLabel>
-                <Input id="Title" placeholder="Input Title" size={"lg"} />
+                <Input
+                  id="title"
+                  name="name"
+                  placeholder="Input Title"
+                  size={"lg"}
+                  onChange={(e) => {
+                    InputChange(e);
+                  }}
+                ></Input>
                 <Box height={"20px"}></Box>
                 <FormLabel htmlFor="Icon" fontSize={"30px"}>
                   Icon
                 </FormLabel>
-                <Select id="Icon" placeholder="Select Vtuber" size={"lg"}>
+                <Select id="icon" placeholder="Select Vtuber" size={"lg"}>
                   <option>一ノ瀬うるは</option>
                   <option>橘ひなの</option>
                   <option>藍沢エマ</option>
@@ -169,11 +153,6 @@ export default function CommunityPage() {
                   <option>神成きゅぴ</option>
                   <option>如月 れん</option>
                 </Select>
-                <Box height={"20px"}></Box>
-                <FormLabel htmlFor="Tag" fontSize={"30px"}>
-                  Tag
-                </FormLabel>
-                <Input id="Tag" placeholder="Input Tag" size={"lg"} />
                 <Box height={"20px"}></Box>
               </FormControl>
             </ModalBody>
@@ -193,6 +172,7 @@ export default function CommunityPage() {
               <Button
                 onClick={() => {
                   setIsShow(false);
+                  submit();
                 }}
                 bgColor="#FF0080"
                 color={"white"}
@@ -218,34 +198,12 @@ export default function CommunityPage() {
           m={"0 auto"}
           alignItems={"end"}
           fontSize={"100px"}
-          // bgGradient='linear(to-l, #7928CA, #FF0080)'
           bgColor="#e30079"
           bgClip="text"
           fontWeight="extrabold"
         >
           COMMUNITY
         </Heading>
-        {/* <HStack>
-          <IconButton
-            bgColor={"#FF0080"}
-            aria-label='Call Segun'
-            size='lg'
-            icon={<PhoneIcon />}
-            borderRadius='90%'
-            color={"white"}
-          />
-          <Box w={"20px"}></Box>
-          <Button
-            bgColor='#FF0080'
-            color={"white"}
-            fontWeight={"light"}
-            onClick={onOpen}
-            ref={btnRef}
-          >
-            ADD NEW
-          </Button>
-          <Box w={"30px"}></Box>
-        </HStack> */}
       </Stack>
 
       <Box h={"28px"}></Box>
@@ -263,7 +221,6 @@ export default function CommunityPage() {
           m={"0 auto"}
         >
           <HStack h={"70px"} bgColor="" justifyContent={"space-between"}>
-            {/* <SimpleGrid>{test.length && <OfficeCardTag></OfficeCardTag>}</SimpleGrid> */}
             <Flex wrap={"wrap"} w="800px" gap={1}>
               {["green", "red"].map((m) => (
                 <Tag
