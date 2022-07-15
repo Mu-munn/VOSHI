@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Center,
+  color,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -11,11 +12,21 @@ import {
   DrawerHeader,
   DrawerOverlay,
   Flex,
+  FormControl,
+  FormLabel,
   Grid,
   Heading,
   HStack,
   IconButton,
   Input,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  Select,
   SimpleGrid,
   Stack,
   Tag,
@@ -24,22 +35,42 @@ import {
   useDisclosure,
   VStack,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+
 import ArticleCard from "../../components/Cards/idea-card/ArticleCard/app";
 import OfficeCardTag from "../../components/Cards/idea-card/CardTag";
 import { NavbarWithAvator } from "../../components/chakra/NavbarWithAvatar/App";
 import { BiCategory } from "react-icons/bi";
+import AddNewModal from "components/Popups/AddNewModal/App";
+import { Community } from "@/project-types/community";
+import React, { useEffect, useState } from "react";
 
 export default function CommunityPage() {
+  const defaultValue: Community = {
+    id: "",
+    name: "",
+    vtuberId: "",
+    taglds: [],
+    latestUid: [],
+  };
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
-  const [test, SetTest] = useState(["aa"]);
-  const SelectTag = () => {
-    test.push("aa");
-    test.push("aa");
-    test.push("aa");
+  const [isShow, setIsShow] = useState(false);
+  const [fieldValues, setFieldValues] = useState<Community>(defaultValue);
+
+  const InputChange = (e: any) => {
+    const target = e.target;
+    const value = target.value;
+    const name = target.name;
+    setFieldValues({ ...fieldValues, [name]: value });
   };
-  const reptiles = ["alligator", "snake", "lizard"];
+  useEffect(() => {
+    // console.log(fieldValues);
+  });
+  const submit = () => {
+    console.log(fieldValues);
+  };
+
   return (
     <Box bgColor={"aliceblue"} h="2000px">
       <Drawer
@@ -58,15 +89,104 @@ export default function CommunityPage() {
           </DrawerBody>
 
           <DrawerFooter>
-            <Button variant="outline" mr={3} onClick={onClose}>
+            <Button
+              variant="outline"
+              mr={3}
+              onClick={onClose}
+              bgColor="gray.400"
+              color={"white"}
+              fontWeight={"light"}
+              borderRadius="full"
+            >
               Cancel
             </Button>
-            <Button colorScheme="blue" onClick={SelectTag}>
+            <Button
+              colorScheme="blue"
+              bgColor="#FF0080"
+              color={"white"}
+              fontWeight={"light"}
+              borderRadius="full"
+              onClick={() => {}}
+            >
               Save
             </Button>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
+
+      {isShow === true && (
+        <Modal
+          onClose={() => {
+            setIsShow(false);
+          }}
+          isOpen={true}
+          isCentered
+        >
+          <ModalOverlay />
+          <ModalContent h="600px" maxW="1000px">
+            <ModalHeader>ADD NEW</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              <FormControl isRequired>
+                <FormLabel htmlFor="first-name" fontSize={"30px"}>
+                  Title
+                </FormLabel>
+                <Input
+                  id="title"
+                  name="name"
+                  placeholder="Input Title"
+                  size={"lg"}
+                  onChange={(e) => {
+                    InputChange(e);
+                  }}
+                ></Input>
+                <Box height={"20px"}></Box>
+                <FormLabel htmlFor="Icon" fontSize={"30px"}>
+                  Icon
+                </FormLabel>
+                <Select id="icon" placeholder="Select Vtuber" size={"lg"}>
+                  <option>一ノ瀬うるは</option>
+                  <option>橘ひなの</option>
+                  <option>藍沢エマ</option>
+                  <option>空澄 セナ</option>
+                  <option>花芽 すみれ</option>
+                  <option>花芽 なずな</option>
+                  <option>神成きゅぴ</option>
+                  <option>如月 れん</option>
+                </Select>
+                <Box height={"20px"}></Box>
+              </FormControl>
+            </ModalBody>
+            <ModalFooter>
+              <Button
+                onClick={() => {
+                  setIsShow(false);
+                }}
+                bgColor="gray.400"
+                color={"white"}
+                fontWeight={"light"}
+                borderRadius="full"
+              >
+                Cancel
+              </Button>
+              <Box w={"10px"}></Box>
+              <Button
+                onClick={() => {
+                  setIsShow(false);
+                  submit();
+                }}
+                bgColor="#FF0080"
+                color={"white"}
+                fontWeight={"light"}
+                borderRadius="full"
+              >
+                Save
+              </Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      )}
+
       <NavbarWithAvator></NavbarWithAvator>
       <Stack
         justify={"space-between"}
@@ -79,34 +199,12 @@ export default function CommunityPage() {
           m={"0 auto"}
           alignItems={"end"}
           fontSize={"100px"}
-          // bgGradient='linear(to-l, #7928CA, #FF0080)'
           bgColor="#e30079"
           bgClip="text"
           fontWeight="extrabold"
         >
           COMMUNITY
         </Heading>
-        {/* <HStack>
-          <IconButton
-            bgColor={"#FF0080"}
-            aria-label='Call Segun'
-            size='lg'
-            icon={<PhoneIcon />}
-            borderRadius='90%'
-            color={"white"}
-          />
-          <Box w={"20px"}></Box>
-          <Button
-            bgColor='#FF0080'
-            color={"white"}
-            fontWeight={"light"}
-            onClick={onOpen}
-            ref={btnRef}
-          >
-            ADD NEW
-          </Button>
-          <Box w={"30px"}></Box>
-        </HStack> */}
       </Stack>
 
       <Box h={"28px"}></Box>
@@ -155,6 +253,9 @@ export default function CommunityPage() {
                 color={"white"}
                 fontWeight={"light"}
                 borderRadius="full"
+                onClick={() => {
+                  setIsShow(true);
+                }}
               >
                 ADD NEW
               </Button>
