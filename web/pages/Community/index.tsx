@@ -35,13 +35,14 @@ import {
   useDisclosure,
   VStack,
 } from "@chakra-ui/react";
-import React, { FormEvent, useEffect, useState } from "react";
+
 import ArticleCard from "../../components/Cards/idea-card/ArticleCard/app";
 import OfficeCardTag from "../../components/Cards/idea-card/CardTag";
 import { NavbarWithAvator } from "../../components/chakra/NavbarWithAvatar/App";
 import { BiCategory } from "react-icons/bi";
 import AddNewModal from "components/Popups/AddNewModal/App";
 import { Community } from "@/project-types/community";
+import React, { useEffect, useState } from "react";
 
 export default function CommunityPage() {
   const defaultValue: Community = {
@@ -221,6 +222,7 @@ export default function CommunityPage() {
           m={"0 auto"}
         >
           <HStack h={"70px"} bgColor="" justifyContent={"space-between"}>
+            {/* <SimpleGrid>{test.length && <OfficeCardTag></OfficeCardTag>}</SimpleGrid> */}
             <Flex wrap={"wrap"} w="800px" gap={1}>
               {["green", "red"].map((m) => (
                 <Tag
@@ -246,7 +248,6 @@ export default function CommunityPage() {
                 onClick={onOpen}
               />
               <Box w={"10px"}></Box>
-
               <Button
                 bgColor="#FF0080"
                 color={"white"}
@@ -264,23 +265,24 @@ export default function CommunityPage() {
         </Box>
 
         <Box h={"28px"}></Box>
-
-        <SimpleGrid bgColor="" m={"0 auto"} columns={3} gap="5">
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
-        </SimpleGrid>
+        <Center>
+          <SimpleGrid columns={[2, null, 3]} spacing="40px">
+              <ArticleCard />
+              <ArticleCard />
+              <ArticleCard />
+              <ArticleCard />
+              <ArticleCard />
+              <ArticleCard />
+              <ArticleCard />
+              <ArticleCard />
+              <ArticleCard />
+              <ArticleCard />
+              <ArticleCard />
+              <ArticleCard />
+              <ArticleCard />
+              <ArticleCard />
+          </SimpleGrid>
+        </Center>
       </Box>
     </Box>
   );
