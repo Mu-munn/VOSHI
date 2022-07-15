@@ -21,7 +21,8 @@
     "react-markdown": "^8.0.0",
     "react-youtube": "^9.0.2",
     "remark-gfm": "^3.0.1",
-    "swiper": "^8.2.6"
+    "swiper": "^8.2.6",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@chakra-ui/icons": "^2.0.2",
