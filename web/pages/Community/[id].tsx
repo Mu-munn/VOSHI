@@ -37,11 +37,10 @@ export const getStaticProps: GetStaticProps<PageProps> = async (context) => {
 };
 export default function CommunityDetailPage(props) {
   return (
-    <Box>
-      {/* <Text>{props.title}</Text> */}
+    <Box bgColor={"aliceblue"}>
       <NavbarWithAvator></NavbarWithAvator>
       <Center>
-        <VStack width={"90%"}>
+        <VStack width={"65%"}>
           <Heading
             m={"0 auto"}
             alignItems={"end"}
@@ -50,18 +49,72 @@ export default function CommunityDetailPage(props) {
             bgClip="text"
             fontWeight="extrabold"
           >
-            BulletinBoard
+            {/* {props.title} */}
+            title
           </Heading>
-          
-          <HStack h={"100px"} spacing="20px">
-            <Divider orientation="vertical"/>
-            <Avatar h={"100px"} w={"100px"} src="" />
-            <Text>AAAAAAAAAAAAAAAAAAAAAAAAAAAAA</Text>
-          </HStack>
-          
-          <Divider />
-        </VStack>
+          <Text>掲示板</Text>
+          <Box height={"20px"}></Box>
+          <Divider
+            borderColor={"#e30079"}
+            borderBottomWidth="5px"
+            borderRadius="10px"
+          />
+          <Box height={"20px"}></Box>
+          <VStack
+            bg={"#f1e1cd"}
+            boxShadow={"rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}
+            borderRadius="30px"
+            w="100%"
+          >
+            <Box height={"20px"}></Box>
+            <HStack h={"100px"} spacing="30px">
+              <Avatar h={"50px"} w={"50px"} src="" />
+              <Box w={"900px"}>
+                <Text fontSize={"15px"}>
+                  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+                </Text>
+              </Box>
+            </HStack>
+            <Divider borderRadius="10px" w={"90%"} borderColor={"#343434"} />
+            <HStack h={"100px"} spacing="30px">
+              <Avatar h={"50px"} w={"50px"} src="" />
+              <Box w={"900px"}>
+                <Text fontSize={"15px"}>
+                  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+                </Text>
+              </Box>
+            </HStack>
+            <Divider borderRadius="10px" w={"90%"} borderColor={"#e30079"} />
+            <Box height={"20px"}></Box>
+            <HStack h={"100px"} spacing="30px">
+              <Avatar h={"50px"} w={"50px"} src="" />
+              <Box w={"900px"}>
+                <Text fontSize={"15px"}>
+                  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+                </Text>
+              </Box>
+            </HStack>
+            <Divider borderRadius="10px" w={"90%"} borderColor={"#e30079"} />
+            <Box height={"20px"}></Box>
+          </VStack>
+        </VStack>      <Box
+        pos={"fixed"}
+        bottom="50px"
+        zIndex={1}
+        bgColor="white"
+        borderRadius={"2xl"}
+        p={2}
+        boxShadow="md"
+        w="65%"
+        h={"100px"}
+        m={"0 auto"}
+      >
+        
+      </Box>
       </Center>
+      
+
+      <Box height={"2000px"}></Box>
     </Box>
   );
 }
