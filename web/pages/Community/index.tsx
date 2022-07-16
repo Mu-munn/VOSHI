@@ -45,6 +45,15 @@ import { Community } from "@/project-types/community";
 import React, { useEffect, useState } from "react";
 
 export default function CommunityPage() {
+  /// TODO:community型のオブジェクトがはいった配列
+  const testObj: Community = {
+    id: "a97052d7-d8a6-4f78-8b9b-59f2dfcf4a28",
+    name: "bbcd",
+    vtuberId: "",
+    taglds: [],
+    latestUid: [],
+  };
+  const testFetchArray = [testObj,testObj,testObj,testObj,testObj];
   const defaultValue: Community = {
     id: "",
     name: "",
@@ -267,20 +276,18 @@ export default function CommunityPage() {
         <Box h={"28px"}></Box>
         <Center>
           <SimpleGrid columns={[2, null, 3]} spacing="40px">
-              <ArticleCard />
-              <ArticleCard />
-              <ArticleCard />
-              <ArticleCard />
-              <ArticleCard />
-              <ArticleCard />
-              <ArticleCard />
-              <ArticleCard />
-              <ArticleCard />
-              <ArticleCard />
-              <ArticleCard />
-              <ArticleCard />
-              <ArticleCard />
-              <ArticleCard />
+            {/* <ArticleCard /> */}
+{/* ここで繰り返し */}
+                {testFetchArray.map((m)=>{
+                  console.log(m);
+                  return(
+                  <ArticleCard
+                  key={m.id}
+                  title={m.name}
+                  ></ArticleCard>
+                  )
+
+                })}
           </SimpleGrid>
         </Center>
       </Box>

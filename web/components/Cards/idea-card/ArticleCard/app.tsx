@@ -10,8 +10,9 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react"
+import React from "react";
 
-export default function ArticleCard() {
+export default function ArticleCard(props){
   return (
     <Stack
       justifyContent={"space-between"}
@@ -37,7 +38,8 @@ export default function ArticleCard() {
         p={1}
        textShadow='2px 2px #ff0000'
       >
-        今日の配信が良かったああああああ件
+        {props.title}
+        {/* 今日の配信が良かったああああああ件 */}
       </Heading>
 
       <HStack p={1}>
