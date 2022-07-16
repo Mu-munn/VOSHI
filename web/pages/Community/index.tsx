@@ -53,7 +53,7 @@ export default function CommunityPage() {
     taglds: [],
     latestUid: [],
   };
-  const testFetchArray = [testObj,testObj,testObj,testObj,testObj];
+  const testFetchArray = [testObj, testObj, testObj, testObj, testObj];
   const defaultValue: Community = {
     id: "",
     name: "",
@@ -77,7 +77,7 @@ export default function CommunityPage() {
     // console.log(fieldValues);
   });
   const submit = () => {
-    console.log(fieldValues);
+    // console.log(fieldValues);
   };
 
   return (
@@ -277,17 +277,11 @@ export default function CommunityPage() {
         <Center>
           <SimpleGrid columns={[2, null, 3]} spacing="40px">
             {/* <ArticleCard /> */}
-{/* ここで繰り返し */}
-                {testFetchArray.map((m)=>{
-                  console.log(m);
-                  return(
-                  <ArticleCard
-                  key={m.id}
-                  title={m.name}
-                  ></ArticleCard>
-                  )
-
-                })}
+            {/* ここで繰り返し */}
+            {testFetchArray.map((m) => {
+              // console.log(m);
+              return <ArticleCard key={m.id} title={m.name}></ArticleCard>;
+            })}
           </SimpleGrid>
         </Center>
       </Box>
