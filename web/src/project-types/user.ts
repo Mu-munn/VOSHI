@@ -3,7 +3,6 @@ import { FieldValue } from 'firebase/firestore'
 type UserBase = {
   id: string
   email: string | null
-  favorites: string[]
   name: string | null
 }
 

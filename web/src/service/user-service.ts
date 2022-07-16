@@ -7,12 +7,10 @@ import { app } from "src/utils/firebase/init"
 export class UserService {
   static createUser = async ({
     id,
-    favorites = [],
     name = null,
     email = null,
   }: {
     id: string
-    favorites?: string[]
     name?: string | null
     email?: string | null
   }): Promise<void> => {
@@ -26,7 +24,6 @@ export class UserService {
     const request: UserCreate = {
       id: id,
       email: email,
-      favorites: favorites,
       name: name,
       created: serverTimestamp(),
       updated: serverTimestamp(),
