@@ -19,6 +19,7 @@ import {
   HStack,
   IconButton,
   Input,
+  Link,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -32,6 +33,7 @@ import {
   Tag,
   TagCloseButton,
   TagLabel,
+  textDecoration,
   useDisclosure,
   VStack,
 } from "@chakra-ui/react";
@@ -280,7 +282,7 @@ export default function CommunityPage() {
             {/* ここで繰り返し */}
             {testFetchArray.map((m) => {
               // console.log(m);
-              return <ArticleCard key={m.id} title={m.name}></ArticleCard>;
+              return <Link key={""} href={`/Community/${m.id}`} _hover={{textDecoration:'none'}}><ArticleCard key={m.id} title={m.name}></ArticleCard></Link>;
             })}
           </SimpleGrid>
         </Center>
