@@ -11,7 +11,8 @@ const firebaseConfig = {
   projectId: "voshi-28545",
   storageBucket: "voshi-28545.appspot.com",
   messagingSenderId: "437427660877",
-  appId: "1:437427660877:web:74202a129fa01d994c9404"
+  appId: "1:437427660877:web:74202a129fa01d994c9404",
+  databaseURL: "https://voshi-28545.firebaseio.com"
 };
 
 // Initialize Firebase
