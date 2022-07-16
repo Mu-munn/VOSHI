@@ -51,7 +51,7 @@ export default function CommunityPage() {
   const testObj: Community = {
     id: "a97052d7-d8a6-4f78-8b9b-59f2dfcf4a28",
     name: "bbcd",
-    vtuberId: "",
+    vtuberId: "", 
     taglds: [],
     latestUid: [],
   };
