@@ -19,6 +19,7 @@ import {
   HStack,
   IconButton,
   Input,
+  Link,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -32,6 +33,7 @@ import {
   Tag,
   TagCloseButton,
   TagLabel,
+  textDecoration,
   useDisclosure,
   VStack,
 } from "@chakra-ui/react";
@@ -49,7 +51,7 @@ export default function CommunityPage() {
   const testObj: Community = {
     id: "a97052d7-d8a6-4f78-8b9b-59f2dfcf4a28",
     name: "bbcd",
-    vtuberId: "",
+    vtuberId: "", 
     taglds: [],
     latestUid: [],
   };
@@ -280,7 +282,7 @@ export default function CommunityPage() {
             {/* ここで繰り返し */}
             {testFetchArray.map((m) => {
               // console.log(m);
-              return <ArticleCard key={m.id} title={m.name}></ArticleCard>;
+              return <Link key={""} href={`/Community/${m.id}`} _hover={{textDecoration:'none'}}><ArticleCard key={m.id} title={m.name}></ArticleCard></Link>;
             })}
           </SimpleGrid>
         </Center>
