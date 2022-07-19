@@ -14,7 +14,21 @@ function MyApp({ Component, pageProps }) {
       body: "Dela Gothic One, Raleway, sans-serif",
       heading: "Dela Gothic One, sans-serif, Rampart One",
     },
-  })
+    fontWeights: {
+      normal: 200,
+      medium: 500,
+      bold: 700,
+    },
+    textStyles: {
+      h1: {
+        // you can also use responsive styles
+        fontSize: ["48px", "72px"],
+        fontWeight: "bold",
+        lineHeight: "110%",
+        letterSpacing: "-2%",
+      },
+    },
+  });
 
   return (
     <AuthProvider>
