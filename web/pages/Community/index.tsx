@@ -1,4 +1,4 @@
-import { PhoneIcon } from "@chakra-ui/icons";
+import { PhoneIcon } from "@chakra-ui/icons"
 import {
   Box,
   Button,
@@ -36,87 +36,109 @@ import {
   textDecoration,
   useDisclosure,
   VStack,
-} from "@chakra-ui/react";
+} from "@chakra-ui/react"
 
-import ArticleCard from "../../components/Cards/idea-card/ArticleCard/app";
-import OfficeCardTag from "../../components/Cards/idea-card/CardTag";
-import { NavbarWithAvator } from "../../components/chakra/NavbarWithAvatar/App";
-import { BiCategory } from "react-icons/bi";
-import AddNewModal from "components/Popups/AddNewModal/App";
-import { Community } from "@/project-types/community";
-import React, { useEffect, useState } from "react";
+import ArticleCard from "../../components/Cards/idea-card/ArticleCard/app"
+import OfficeCardTag from "../../components/Cards/idea-card/CardTag"
+import { NavbarWithAvator } from "../../components/chakra/NavbarWithAvatar/App"
+import { BiCategory } from "react-icons/bi"
+import AddNewModal from "components/Popups/AddNewModal/App"
+import { Community } from "@/project-types/community"
+import React, { useEffect, useState } from "react"
+import { GetServerSideProps } from "next/types"
+import { CommunityService } from "src/service/community-service"
+import router from "next/router"
+import { getAllPathIds } from "src/lib/community"
 
-export default function CommunityPage() {
-  /// TODO:community型のオブジェクトがはいった配列
-  const testObj: Community = {
-    id: "a97052d7-d8a6-4f78-8b9b-59f2dfcf4a28",
-    name: "bbcd",
-    vtuberId: "", 
-    taglds: [],
-    latestUid: [],
-  };
-  const testFetchArray = [testObj, testObj, testObj, testObj, testObj];
+interface CommunityPageProps {
+  fetchCommunitiesData: any
+  communities: Community[]
+}
+
+export const getStaticProps = async () => {
+  const fetchCommunitiesData = await CommunityService.fetchCommunties()
+
+  return {
+    props: {
+      fetchCommunitiesData,
+    },
+  }
+}
+
+const CommunityPage = (props: CommunityPageProps) => {
+  const paths = getAllPathIds()
+
+  const communities = props
+  const communitiesArray = communities.fetchCommunitiesData
+  const ids = []
+  communitiesArray.map((m) => {
+    ids.push(m.id)
+  })
+
   const defaultValue: Community = {
     id: "",
     name: "",
     vtuberId: "",
     taglds: [],
     latestUid: [],
-  };
+  }
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = React.useRef();
-  const [isShow, setIsShow] = useState(false);
-  const [fieldValues, setFieldValues] = useState<Community>(defaultValue);
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const btnRef = React.useRef()
+  const [isShow, setIsShow] = useState(false)
+  const [fieldValues, setFieldValues] = useState<Community>(defaultValue)
 
   const InputChange = (e: any) => {
-    const target = e.target;
-    const value = target.value;
-    const name = target.name;
-    setFieldValues({ ...fieldValues, [name]: value });
-  };
+    const target = e.target
+    const value = target.value
+    const name = target.name
+    setFieldValues({ ...fieldValues, [name]: value })
+  }
   useEffect(() => {
     // console.log(fieldValues);
-  });
+  })
   const submit = () => {
-    // console.log(fieldValues);
-  };
+    try {
+      CommunityService.createCommunity({ community: fieldValues })
+    } catch (e) {
+      console.log(e)
+    }
+    location.reload()
+  }
 
   return (
-    <Box bgColor={"aliceblue"} h="2000px">
-      <Drawer
-        isOpen={isOpen}
-        placement="right"
-        onClose={onClose}
-        finalFocusRef={btnRef}
-      >
+    <Box bgColor={"aliceblue"} h='2000px'>
+      {/* {console.dir(communities.fetchCommunitiesData)} */}
+      {console.log(paths)}
+
+      <Drawer isOpen={isOpen} placement='right' onClose={onClose} finalFocusRef={btnRef}>
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>Create your account</DrawerHeader>
 
           <DrawerBody>
-            <Input placeholder="Type here..." />
+            <Input placeholder='Type here...' />
           </DrawerBody>
 
           <DrawerFooter>
             <Button
-              variant="outline"
+              variant='outline'
               mr={3}
               onClick={onClose}
-              bgColor="gray.400"
+              bgColor='gray.400'
               color={"white"}
               fontWeight={"light"}
-              borderRadius="full"
+              borderRadius='full'
             >
               Cancel
             </Button>
             <Button
-              colorScheme="blue"
-              bgColor="#FF0080"
+              colorScheme='blue'
+              bgColor='#FF0080'
               color={"white"}
               fontWeight={"light"}
-              borderRadius="full"
+              borderRadius='full'
               onClick={() => {}}
             >
               Save
@@ -128,34 +150,34 @@ export default function CommunityPage() {
       {isShow === true && (
         <Modal
           onClose={() => {
-            setIsShow(false);
+            setIsShow(false)
           }}
           isOpen={true}
           isCentered
         >
           <ModalOverlay />
-          <ModalContent h="600px" maxW="1000px">
+          <ModalContent h='600px' maxW='1000px'>
             <ModalHeader>ADD NEW</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
               <FormControl isRequired>
-                <FormLabel htmlFor="first-name" fontSize={"30px"}>
+                <FormLabel htmlFor='first-name' fontSize={"30px"}>
                   Title
                 </FormLabel>
                 <Input
-                  id="title"
-                  name="name"
-                  placeholder="Input Title"
+                  id='title'
+                  name='name'
+                  placeholder='Input Title'
                   size={"lg"}
                   onChange={(e) => {
-                    InputChange(e);
+                    InputChange(e)
                   }}
                 ></Input>
                 <Box height={"20px"}></Box>
-                <FormLabel htmlFor="Icon" fontSize={"30px"}>
+                <FormLabel htmlFor='Icon' fontSize={"30px"}>
                   Icon
                 </FormLabel>
-                <Select id="icon" placeholder="Select Vtuber" size={"lg"}>
+                <Select id='icon' placeholder='Select Vtuber' size={"lg"}>
                   <option>一ノ瀬うるは</option>
                   <option>橘ひなの</option>
                   <option>藍沢エマ</option>
@@ -171,25 +193,25 @@ export default function CommunityPage() {
             <ModalFooter>
               <Button
                 onClick={() => {
-                  setIsShow(false);
+                  setIsShow(false)
                 }}
-                bgColor="gray.400"
+                bgColor='gray.400'
                 color={"white"}
                 fontWeight={"light"}
-                borderRadius="full"
+                borderRadius='full'
               >
                 Cancel
               </Button>
               <Box w={"10px"}></Box>
               <Button
                 onClick={() => {
-                  setIsShow(false);
-                  submit();
+                  setIsShow(false)
+                  submit()
                 }}
-                bgColor="#FF0080"
+                bgColor='#FF0080'
                 color={"white"}
                 fontWeight={"light"}
-                borderRadius="full"
+                borderRadius='full'
               >
                 Save
               </Button>
@@ -199,20 +221,14 @@ export default function CommunityPage() {
       )}
 
       <NavbarWithAvator></NavbarWithAvator>
-      <Stack
-        justify={"space-between"}
-        w="95%"
-        direction={"row"}
-        m={"0 auto"}
-        alignItems={"end"}
-      >
+      <Stack justify={"space-between"} w='95%' direction={"row"} m={"0 auto"} alignItems={"end"}>
         <Heading
           m={"0 auto"}
           alignItems={"end"}
           fontSize={"100px"}
-          bgColor="#e30079"
-          bgClip="text"
-          fontWeight="extrabold"
+          bgColor='#e30079'
+          bgClip='text'
+          fontWeight='extrabold'
         >
           COMMUNITY
         </Heading>
@@ -220,28 +236,23 @@ export default function CommunityPage() {
 
       <Box h={"28px"}></Box>
 
-      <Box className="content" w={"95%"} m="0 auto">
+      <Box className='content' w={"95%"} m='0 auto'>
         <Box
           pos={"sticky"}
-          top="50px"
+          top='50px'
           zIndex={1}
-          bgColor="white"
+          bgColor='white'
           borderRadius={"2xl"}
           p={2}
-          boxShadow="md"
-          w="86%"
+          boxShadow='md'
+          w='86%'
           m={"0 auto"}
         >
-          <HStack h={"70px"} bgColor="" justifyContent={"space-between"}>
+          <HStack h={"70px"} bgColor='' justifyContent={"space-between"}>
             {/* <SimpleGrid>{test.length && <OfficeCardTag></OfficeCardTag>}</SimpleGrid> */}
-            <Flex wrap={"wrap"} w="800px" gap={1}>
+            <Flex wrap={"wrap"} w='800px' gap={1}>
               {["green", "red"].map((m) => (
-                <Tag
-                  key={m}
-                  borderRadius="full"
-                  variant="solid"
-                  colorScheme={m}
-                >
+                <Tag key={m} borderRadius='full' variant='solid' colorScheme={m}>
                   <TagLabel>{m}</TagLabel>
                   <TagCloseButton />
                 </Tag>
@@ -250,22 +261,22 @@ export default function CommunityPage() {
             <HStack alignItems={"flex-end"}>
               <IconButton
                 colorScheme={"pink"}
-                variant="outline"
-                aria-label="Call Segun"
+                variant='outline'
+                aria-label='Call Segun'
                 icon={<BiCategory />}
-                size="md"
+                size='md'
                 borderRadius={"full"}
                 ref={btnRef}
                 onClick={onOpen}
               />
               <Box w={"10px"}></Box>
               <Button
-                bgColor="#FF0080"
+                bgColor='#FF0080'
                 color={"white"}
                 fontWeight={"light"}
-                borderRadius="full"
+                borderRadius='full'
                 onClick={() => {
-                  setIsShow(true);
+                  setIsShow(true)
                 }}
               >
                 ADD NEW
@@ -277,16 +288,21 @@ export default function CommunityPage() {
 
         <Box h={"28px"}></Box>
         <Center>
-          <SimpleGrid columns={[2, null, 3]} spacing="40px">
+          <SimpleGrid columns={[2, null, 3]} spacing='40px'>
             {/* <ArticleCard /> */}
             {/* ここで繰り返し */}
-            {testFetchArray.map((m) => {
+            {communitiesArray.map((m) => {
               // console.log(m);
-              return <Link key={""} href={`/Community/${m.id}`} _hover={{textDecoration:'none'}}><ArticleCard key={m.id} title={m.name}></ArticleCard></Link>;
+              return (
+                <Link key={""} href={`/Community/${m.id}`} _hover={{ textDecoration: "none" }}>
+                  <ArticleCard key={m.id} title={m.name}></ArticleCard>
+                </Link>
+              )
             })}
           </SimpleGrid>
         </Center>
       </Box>
     </Box>
-  );
+  )
 }
+export default CommunityPage

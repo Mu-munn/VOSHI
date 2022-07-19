@@ -72,7 +72,7 @@ export const NavbarWithAvator = () => {
                       colorScheme='pin2k'
                       w={"130-px"}
                       as='a'
-                      href='/VTuber'
+                      // href='/VTuber'
                       _hover={{ color: "black" }}
                     >
                       VTUBER
@@ -82,7 +82,7 @@ export const NavbarWithAvator = () => {
                       colorScheme='pin2k'
                       w={"130-px"}
                       as='a'
-                      href='/Songs'
+                      // href='/Songs'
                       _hover={{ color: "black" }}
                     >
                       SONGS
@@ -90,7 +90,7 @@ export const NavbarWithAvator = () => {
                   </ButtonGroup>
                   )
                   <Menu>
-                    <MenuButton as={Button}>
+                    <MenuButton >
                       <Avatar
                         boxSize='10'
                         name='Christoph Winston'

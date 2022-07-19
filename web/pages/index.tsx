@@ -29,11 +29,19 @@ import YouTube from "react-youtube"
 import ArticleCard from "../components/Cards/idea-card/ArticleCard/app"
 import { ArrowForwardIcon } from "@chakra-ui/icons"
 import ArticleSliders from "../components/Sliders/ArticleSlider/App"
+import  CommunityPage  from "./Community"
+import { CommunityService } from "src/service/community-service"
+import router from "next/router"
+import { useEffect } from "react"
 
 export default function Home() {
   const app: FirebaseApp = getApp()
 
   const h = "250px"
+
+  useEffect(() => {
+    router.push("/Community")
+  })
 
   return (
     <>
@@ -51,9 +59,7 @@ export default function Home() {
           <Text>話題のコミュニティ</Text>
           <Box h='20px' w={"80%"} pos={"relative"}>
             <Button
-            // onClick={
-
-            // }
+            onClick={()=>{ router.push("/Community")}}
                 // rightIcon={<ArrowForwardIcon />}
                 // variant='unstyled'
                 position={"absolute"}
