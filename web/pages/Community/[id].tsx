@@ -12,12 +12,14 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import { async } from "@firebase/util";
 import { NavbarWithAvator } from "components/chakra/NavbarWithAvatar/App";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useState } from "react";
+import { Community } from "@/project-types/community";
+import { text } from "stream/consumers";
 type PageProps = {
   title: string;
-  author: string;
 };
 type PathParams = {
   id: string;
@@ -26,8 +28,8 @@ type Statement = {
   id: string;
   created: Date;
   text: string;
-  userId: string;
 };
+
 export const getStaticPaths: GetStaticPaths<PathParams> = async () => {
   return {
     paths: [{ params: { id: "a97052d7-d8a6-4f78-8b9b-59f2dfcf4a28" } }],
@@ -36,20 +38,30 @@ export const getStaticPaths: GetStaticPaths<PathParams> = async () => {
 };
 export const getStaticProps: GetStaticProps<PageProps> = async (context) => {
   const { id } = context.params as PathParams;
+  
+  const testObj: Community = {
+    id: "",
+    name: "fdakdja",
+    vtuberId: "",
+    taglds: [],
+    latestUid: [],
+    created: undefined,
+  };
+  const testFetchArray = [ testObj, testObj, testObj, testObj, testObj];
 
   const props: PageProps = {
-    title: `Title-${id}`,
-    author: `Author-${id}`,
+    title: `${testObj.name}`,
   };
 
   return { props };
 };
 export default function CommunityDetailPage(props) {
+
+
   const defaultValue: Statement = {
     id: "",
     created: undefined,
     text: "",
-    userId: "",
   };
   const [fieldValues, setFieldValues] = useState<Statement>(defaultValue);
   const InputChange = (e: any) => {
@@ -59,7 +71,7 @@ export default function CommunityDetailPage(props) {
     setFieldValues({ ...fieldValues, [name]: value });
   };
   const submit = () => {
-    console.log(fieldValues);
+    console.log(props);
   };
   return (
     <Box bgColor={"aliceblue"}>
@@ -74,8 +86,7 @@ export default function CommunityDetailPage(props) {
             bgClip="text"
             fontWeight="extrabold"
           >
-            {/* {props.title} */}
-            title
+            {props.title}
           </Heading>
           <Text>掲示板</Text>
           <Box height={"20px"}></Box>
@@ -92,17 +103,24 @@ export default function CommunityDetailPage(props) {
             w="100%"
           >
             {/* ///TODO:繰り返し要素ここから */}
-            <Box height={"20px"}></Box>
-            <HStack h={"100px"} spacing="30px">
-              <Avatar h={"50px"} w={"50px"} src="" />
-              <Box w={"900px"}>
-                <Text fontSize={"15px"}>
-                  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-                </Text>
-              </Box>
-            </HStack>
-            <Divider borderRadius="10px" w={"90%"} borderColor={"#343434"} />
-            <Box height={"20px"}></Box>
+            {props.map((m) => {
+              <Box>
+                <Box height={"20px"}></Box>
+                <HStack h={"100px"} spacing="30px">
+                  <Avatar h={"50px"} w={"50px"} src="" />
+                  <Box w={"900px"}>
+                    <Text fontSize={"15px"}>{defaultValue.text}</Text>
+                  </Box>
+                </HStack>
+                <Divider
+                  borderRadius="10px"
+                  w={"90%"}
+                  borderColor={"#343434"}
+                />
+                <Box height={"20px"}></Box>
+              </Box>;
+              
+            })}
             {/* ///TODO:繰り返し要素ここまで */}
             {/* <HStack h={"100px"} spacing="30px">
               <Avatar h={"50px"} w={"50px"} src="" />
@@ -148,7 +166,7 @@ export default function CommunityDetailPage(props) {
               variant="flushed"
               placeholder="Flushed"
               w={"full"}
-              name ="text"
+              name="text"
               onChange={(e) => {
                 InputChange(e);
               }}
