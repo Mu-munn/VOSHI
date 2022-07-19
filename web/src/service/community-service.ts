@@ -19,7 +19,9 @@ export class CommunityService {
         try {
             await setDoc(newcommunityRef, {
                 ...community,
-                id: uuid
+                id: uuid ,
+                created : serverTimestamp()
+                
             })
         } catch (e) {
             throw new Error('communityの更新に失敗しました')
