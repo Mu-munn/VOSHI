@@ -4,5 +4,6 @@ export type Community = {
     taglds : string[]
     vtuberId : string
     latestUid : string[]
+    created : Date
   }
   
