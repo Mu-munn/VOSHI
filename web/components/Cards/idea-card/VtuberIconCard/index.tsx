@@ -13,7 +13,7 @@ import OfficeCardTag from "../CardTag";
 
 export default function VtuberIconCard() {
   const h = "250px";
-  const radiusSize = "39px";
+  const radiusSize = "20px";
   return (
     <>
       <Link href={"/VtuberCommunityPage"}>
@@ -48,7 +48,7 @@ export default function VtuberIconCard() {
               一ノ瀬うるは
             </Text>
           </Center>
-        </Box>{" "}
+        </Box>
       </Link>
     </>
   );
