@@ -67,14 +67,8 @@ export const getStaticProps = async () => {
 }
 
 const CommunityPage = (props: CommunityPageProps) => {
-  const paths = getAllPathIds()
-
   const communities = props
   const communitiesArray = communities.fetchCommunitiesData
-  const ids = []
-  communitiesArray.map((m) => {
-    ids.push(m.id)
-  })
 
   const defaultValue: Community = {
     id: "",
@@ -95,9 +89,7 @@ const CommunityPage = (props: CommunityPageProps) => {
     const name = target.name
     setFieldValues({ ...fieldValues, [name]: value })
   }
-  useEffect(() => {
-    // console.log(fieldValues);
-  })
+  
   const submit = () => {
     try {
       CommunityService.createCommunity({ community: fieldValues })
@@ -109,8 +101,7 @@ const CommunityPage = (props: CommunityPageProps) => {
 
   return (
     <Box bgColor={"aliceblue"} h='2000px'>
-      {/* {console.dir(communities.fetchCommunitiesData)} */}
-      {console.log(paths)}
+      {console.log(communitiesArray)}
 
       <Drawer isOpen={isOpen} placement='right' onClose={onClose} finalFocusRef={btnRef}>
         <DrawerOverlay />
