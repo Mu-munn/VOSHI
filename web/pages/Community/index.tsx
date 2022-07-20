@@ -61,6 +61,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       fetchCommunitiesData,
+      revalidate: 1,
     },
   }
 }
