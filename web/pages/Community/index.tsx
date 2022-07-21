@@ -55,14 +55,14 @@ interface CommunityPageProps {
   communities: Community[]
 }
 
-export const getStaticProps = async () => {
+export async function getStaticProps() {
   const fetchCommunitiesData = await CommunityService.fetchCommunties()
 
   return {
     props: {
       fetchCommunitiesData,
-      revalidate: 1,
     },
+    revalidate: 1,
   }
 }
 
