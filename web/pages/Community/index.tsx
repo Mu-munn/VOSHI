@@ -89,10 +89,10 @@ const CommunityPage = (props: CommunityPageProps) => {
     const name = target.name
     setFieldValues({ ...fieldValues, [name]: value })
   }
-  
-  const submit = () => {
+
+  const submit = async () => {
     try {
-      CommunityService.createCommunity({ community: fieldValues })
+     await CommunityService.createCommunity({ community: fieldValues })
     } catch (e) {
       console.log(e)
     }
