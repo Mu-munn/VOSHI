@@ -107,7 +107,7 @@ const CommunityPage = (props: CommunityPageProps) => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>Create your account</DrawerHeader>
+          <DrawerHeader fontWeight={'light'}>タグを検索か作成</DrawerHeader>
 
           <DrawerBody>
             <Input placeholder='Type here...' />
